@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="lo">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
 
 <style>
 :root{
-/* ปรับโทนสีตามบรีฟ: ม่วงผสมชมพูอ่อน */
+/* ໂທນສີ: ສີມ່ວງປະສົມຊົມພູອ່ອນ */
 --bg:#F3E5F5;
 --main:#CE93D8;
 --dark:#8E24AA;
@@ -116,6 +116,12 @@ margin-bottom:10px;
 background:#fffcfd;
 padding:10px 15px;
 border-radius:15px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.price-row:hover{
+    background: #F3E5F5;
 }
 
 .price-tag{
@@ -164,50 +170,48 @@ border:1px solid #ffeef5;
 <img src="logo.jpg" alt="Kataiy Logo">
 </div>
 
-<h1>Kataiy</h1>
+<h1>Kataiy Store</h1>
 <p style="color:var(--dark);opacity:.8;margin:10px 0 20px;">
-ยินดีต้อนรับสู่ร้าน Kataiy ยินดีให้บริการค่ะ 🎀
+ສະບາຍດີ ຍິນດີຕ້ອນຮັບເຂົ້າສູ່ຮ້ານ Kataiy 🎀
 </p>
 
 <div class="badges">
-<div class="badge">🎨 งานเกมกึ่ง Ads</div>
-<div class="badge">✨ แนวเรียบๆ</div>
-<div class="badge">🌙 แนวมืด</div>
-<div class="badge">🧸 หน้าฮัก</div>
-<div class="badge">🖼️ หัวป้าย-ลายนน้ำ</div>
+<div class="badge">🎨 ແນວເກມກຶ່ງAds</div>
+<div class="badge">💎 ໂປຣໄຟລ໌</div>
+<div class="badge">🖼️ ຫົວປ້າຍ-ລາຍນ້ຳ</div>
+<div class="badge">🧸 ແນວຫນ້າຮັກ</div>
 </div>
 
 <a href="#" class="btn btn-outline">
-เช็คคิวงาน (โอน=ได้คิว) ✨
+ໂອນ = ໄດ້ຄິວ (ງານເລັ່ງ +10,000) ✨
 </a>
 </div>
 
 <div class="section">
-<h2>📝 ขั้นตอนการสั่ง</h2>
+<h2>📋 ຂັ້ນຕອນການສັ່ງ</h2>
 
-<div class="step"><div class="step-num">1</div><div>เลือก box หรือ ตัวอย่างของทางร้าน</div></div>
-<div class="step"><div class="step-num">2</div><div>ชำระเงินค่าป้าย</div></div>
-<div class="step"><div class="step-num">3</div><div>กรอกฟอร์มข้อมูลที่ทางร้านส่งให้</div></div>
-<div class="step"><div class="step-num">4</div><div>รอรับงานสวยๆ ได้เลย</div></div>
+<div class="step"><div class="step-num">1</div><div>ເລືອກbox ຫຼື ຕົວຢ່າງຂອງທາງຮ້ານ</div></div>
+<div class="step"><div class="step-num">2</div><div>ຊຳລະເງິນຄ່າປ້າຍ</div></div>
+<div class="step"><div class="step-num">3</div><div>ກອກຟອມຂໍ້ມູນທີ່ທາງຮ້ານສົ່ງໃຫ້</div></div>
+<div class="step"><div class="step-num">4</div><div>ຖ້າຮັບງານ</div></div>
 
-<a href="https://drive.google.com/drive/folders/1v07-1ayQBM6YzG1lwGnRHSNcgFLBE9S1" class="btn btn-main">⭐️ ตัวอย่างตูน + ของตต คลิ๊ก</a>
+<a href="https://drive.google.com/drive/folders/1v07-1ayQBM6YzG1lwGnRHSNcgFLBE9S1" class="btn btn-main">⭐️ ຕົວຢ່າງຕູນ + ຂອງຕຕ ຄລິກ</a>
 </div>
 
 <div class="section">
-<h2>📂 ผลงานของเรา</h2>
+<h2>📂 ຜົນງານຂອງທາງຮ້ານ</h2>
 
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1WynLKq_16qWhh6Rz14G_ANUclLUyO1lB'"><span>แนวเรียบๆ+เกม</span><span class="price-tag">View</span></div>
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1vhtzkVD4nyX70as81QNOtxgx0eid1oED'"><span>แนวมืด</span><span class="price-tag">View</span></div>
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/13SV21IB_4mmnjLwZ28ySzhraSOs6TOFQ'"><span>แนวเฮด</span><span class="price-tag">View</span></div>
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1iXWdlOwl15NhRBaQHCxdWvWYg_oH7t_N'"><span>แนวหน้าฮัก+ธรรมดา</span><span class="price-tag">View</span></div>
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1LLL7vUBMtapUIxY_4NVEW_bM7_qQJPHq'"><span>โปรไฟล์</span><span class="price-tag">View</span></div>
+<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1WynLKq_16qWhh6Rz14G_ANUclLUyO1lB'"><span>ແນວລຽບໆ+ເກມ</span><span class="price-tag">ເບິ່ງງານ</span></div>
+<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1vhtzkVD4nyX70as81QNOtxgx0eid1oED'"><span>ແນວມືດ</span><span class="price-tag">ເບິ່ງງານ</span></div>
+<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/13SV21IB_4mmnjLwZ28ySzhraSOs6TOFQ'"><span>ແນວເຮດ</span><span class="price-tag">ເບິ່ງງານ</span></div>
+<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1iXWdlOwl15NhRBaQHCxdWvWYg_oH7t_N'"><span>ແນວຫນ້າຮັກ+ທຳມະດາ</span><span class="price-tag">ເບິ່ງງານ</span></div>
+<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1H7NV_ti-AusWZsEUT0nGu2wLhbvEP4sj'"><span>ຫົວປ້າຍ-ລາຍນ້ຳ</span><span class="price-tag">ເບິ່ງງານ</span></div>
 
-<p class="small" style="color:red; text-align:center;">* งานเร่ง + 10,000 *</p>
-<a href="https://drive.google.com/drive/folders/1lgXrKVEoEyFgByepZo3TNtaGm7GYd1zF" class="btn btn-main">ดูรวมป้ายปล่อย F</a>
+<a href="https://drive.google.com/drive/folders/1lgXrKVEoEyFgByepZo3TNtaGm7GYd1zF" class="btn btn-main">ຮ່ວມປ້າຍປ່ອຍ F</a>
 </div>
 
 <div class="footer">
-<a href="https://www.facebook.com/share/14WkotdfjdV/" class="btn btn-main">ติดต่อสอบถาม (Facebook) 🎀</a>
+<a href="https://www.facebook.com/share/14WkotdfjdV/" class="btn btn-main">ຕິດຕໍ່ສອບຖາມ Facebook 🎀</a>
 
 <div class="socials">
 <a href="https://www.facebook.com/share/14WkotdfjdV/">Facebook</a>
@@ -215,12 +219,14 @@ border:1px solid #ffeef5;
 <a href="#">LINE</a>
 </div>
 
-<div style="margin-top:20px; font-size:12px; color:var(--dark); background:rgba(255,255,255,0.5); padding:10px; border-radius:10px;">
-    <strong>📍 กฎของร้าน:</strong> ไม่รับงานตามแบบร้านอื่น และห้ามนำงานร้านไปเป็นตัวอย่างให้ร้านอื่น
+<div style="margin-top:20px; font-size:12px; color:var(--dark); background:rgba(255,255,255,0.7); padding:15px; border-radius:15px; text-align: left; border: 1px solid var(--main);">
+    <strong>📍 ກົດຂອງຮ້ານ 📍</strong><br>
+    - ທາງຮ້ານຈະບໍ່ຮັບເຮັດງານຕາມຕົວຢ່າງຮ້านອື່ນ<br>
+    - ຫ້າມເອົາງານຂອງທາງຮ້ານໄປເປັນຕົວຢ່າງໃຫ້ຮ້ານອື່ນເຮັດ
 </div>
 
 <p class="small">
-© 2026 Kataiy Store
+© 2026 Kataiy Store | Nammork Ssv
 </p>
 </div>
 

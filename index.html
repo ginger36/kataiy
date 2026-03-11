@@ -9,13 +9,13 @@
 
 <style>
 :root{
-/* ປັບໂທນສີໃຫ້ເປັນມ່ວງພັດເທວທີ່ນຸ້ມນວນທີ່ສຸດ */
+/* ປັບໂທນສີມ່ວງພັດເທວໃຫ້ລະມຸນທີ່ສຸດ */
 --bg: #F8F5FF; 
---main: #D6BCFA; /* Lavender พาสเทล */
---accent: #E9D8FD; /* ม่วงอ่อนใส */
---dark: #553C9A; /* ม่วงเข้มสำหรับอ่านง่าย */
+--main: #D6BCFA; 
+--accent: #E9D8FD; 
+--dark: #553C9A; 
 --white: #FFFFFF;
---glow: rgba(214, 188, 250, 0.5);
+--glow: rgba(214, 188, 250, 0.6);
 --status-color: #9F7AEA; 
 }
 
@@ -25,8 +25,8 @@ body{
 background:var(--bg);
 display:flex;
 justify-content:center;
-/* พื้นหลังลายจุดม่วงอ่อนแบบน่ารัก */
-background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48ZyBmaWxsPSIjRDZCQ0ZBIiBmaWxsLW9wYWNpdHk9IjAuMSI+PGNpcmNsZSBjeD0iMyIgY3k9IjMiIHI9IjEuNSIvPjwvZz48L3N2Zz4=');
+/* ພື້ນຫຼັງລາຍຈຸດມ່ວງອ່ອນໆແບບ Clean */
+background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48ZyBmaWxsPSIjRDZCQ0ZBIiBmaWxsLW9wYWNpdHk9IjAuMTUiPjxjaXJjbGUgY3g9IjMiIGN5PSIzIiByPSIxLjUiLz48L2c+PC9zdmc+');
 }
 
 .container{
@@ -40,7 +40,7 @@ background:var(--white);
 border-radius:30px; 
 padding:30px 25px;
 margin-bottom:25px;
-box-shadow:0 10px 20px rgba(85, 60, 154, 0.05); 
+box-shadow:0 12px 24px rgba(85, 60, 154, 0.06); 
 border: 2px solid var(--accent); 
 position: relative;
 transition: all 0.3s ease;
@@ -48,19 +48,19 @@ transition: all 0.3s ease;
 
 .section:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(85, 60, 154, 0.1);
+    box-shadow: 0 18px 35px rgba(85, 60, 154, 0.12);
 }
 
 h1,h2,h3{color:var(--dark); font-weight: 500;}
 .center{text-align:center;}
 
 .logo{
-width:160px;height:160px;
+width:165px;height:165px;
 border-radius:50%;
 overflow:hidden;
 margin:0 auto 25px;
 border: 6px solid var(--white);
-box-shadow:0 8px 30px var(--glow);
+box-shadow:0 10px 35px var(--glow);
 background: var(--white);
 }
 
@@ -70,18 +70,18 @@ background: var(--white);
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:10px;
+gap:12px;
 margin-bottom:25px;
 }
 
 .badge{
 background: var(--white);
-padding:8px 18px;
+padding:9px 20px;
 border-radius:25px;
 border: 2px solid var(--main);
 font-size:14px;
 color:var(--dark);
-box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 
 .btn{
@@ -92,7 +92,7 @@ border-radius:35px;
 text-decoration:none;
 margin-top:20px;
 font-weight:500;
-transition: all 0.3s ease;
+transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .btn-outline{
@@ -108,18 +108,18 @@ gap: 12px;
 .btn-main{
 background: linear-gradient(135deg, var(--main), var(--status-color));
 color:var(--white);
-box-shadow: 0 6px 20px var(--glow);
+box-shadow: 0 8px 25px var(--glow);
 border: none;
 }
 
 .btn-main:hover{
-    transform: scale(1.03);
-    box-shadow: 0 8px 25px var(--glow);
+    transform: scale(1.04);
+    box-shadow: 0 10px 30px var(--glow);
 }
 
 @keyframes blink {
     0% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.85); }
+    50% { opacity: 0.4; transform: scale(0.8); }
     100% { opacity: 1; transform: scale(1); }
 }
 
@@ -128,8 +128,8 @@ border: none;
     height: 12px;
     background-color: var(--dark);
     border-radius: 50%;
-    animation: blink 2s infinite ease-in-out;
-    box-shadow: 0 0 12px var(--main);
+    animation: blink 2.2s infinite ease-in-out;
+    box-shadow: 0 0 15px var(--main);
 }
 
 .step{
@@ -149,6 +149,7 @@ align-items:center;
 justify-content:center;
 font-size:16px;
 font-weight: bold;
+box-shadow: 0 4px 10px var(--glow);
 }
 
 .price-row{
@@ -157,8 +158,8 @@ justify-content:space-between;
 align-items: center;
 margin-bottom:12px;
 background:#FDFBFF;
-padding:15px 20px;
-border-radius:20px;
+padding:16px 22px;
+border-radius:22px;
 cursor: pointer;
 transition: 0.3s;
 border: 1.5px solid transparent;
@@ -167,13 +168,13 @@ border: 1.5px solid transparent;
 .price-row:hover{
     background: var(--accent);
     border-color: var(--main);
-    transform: translateX(5px);
+    transform: translateX(8px);
 }
 
 .price-tag{
 background:var(--white);
 color:var(--dark);
-padding:5px 15px;
+padding:6px 16px;
 border-radius:20px;
 font-size:14px;
 border: 1.5px solid var(--main);
@@ -182,8 +183,8 @@ border: 1.5px solid var(--main);
 .time-box{
     background: #FFF;
     border: 2px solid var(--main);
-    padding: 20px;
-    border-radius: 25px;
+    padding: 22px;
+    border-radius: 28px;
     margin-top: 15px;
 }
 
@@ -191,20 +192,20 @@ border: 1.5px solid var(--main);
     display: flex;
     justify-content: space-between;
     font-size: 15px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: var(--dark);
 }
 
-.small{font-size:13px; color: var(--dark); opacity:.6; margin-top:25px; text-align: center;}
+.small{font-size:13px; color: var(--dark); opacity:.6; margin-top:28px; text-align: center;}
 
-/* ตกแต่งด้วยโบว์หรือหัวใจ */
+/* ເພີ່ມຄວາມໜ້າຮັກດ້ວຍອີໂມຈິ */
 .section::after {
     content: '💜';
     position: absolute;
     top: 15px;
     right: 20px;
     font-size: 14px;
-    opacity: 0.3;
+    opacity: 0.35;
 }
 </style>
 </head>
@@ -216,8 +217,8 @@ border: 1.5px solid var(--main);
 <div class="logo">
 <img src="242_20260207172619.jpeg" alt="Kataiy Logo">
 </div>
-<h1 style="font-size: 2.2rem;">Kataiy Store</h1>
-<p style="color:var(--dark); margin:10px 0 25px;">
+<h1 style="font-size: 2.3rem; letter-spacing: 1px;">Kataiy Store</h1>
+<p style="color:var(--dark); margin:12px 0 28px; font-weight: 400;">
 ສະບາຍດີ ຍິນດີຕ້ອນຮັບເຂົ້າສູ່ຮ້ານ Kataiy 🎀
 </p>
 
@@ -233,16 +234,16 @@ border: 1.5px solid var(--main);
 </div>
 
 <div class="section">
-    <div style="font-size:15px; color:var(--dark); background:var(--accent); padding:20px; border-radius:22px; border: 2px dashed var(--dark);">
-        <h2 style="text-align: center; font-size: 1.4rem; margin-bottom: 15px;">📍 ກົດຂອງຮ້ານ 📍</h2>
-        <p style="margin-bottom: 8px;">• ທາງຮ້ານຈະບໍ່ຮັບເຮັດງານຕາມຕົວຢ່າງຮ້ານອື່ນ</p>
+    <div style="font-size:15px; color:var(--dark); background:var(--accent); padding:22px; border-radius:24px; border: 2px dashed var(--dark);">
+        <h2 style="text-align: center; font-size: 1.5rem; margin-bottom: 18px;">📍 ກົດຂອງຮ້ານ 📍</h2>
+        <p style="margin-bottom: 10px;">• ທາງຮ້ານຈະບໍ່ຮັບເຮັດງານຕາມຕົວຢ່າງຮ້ານອື່ນ</p>
         <p>• ຫ້າມເອົາງານຂອງທາງຮ້ານໄປເປັນຕົວຢ່າງໃຫ້ຮ້ານອື່ນເຮັດ</p>
     </div>
 </div>
 
 <div class="section">
-<h2 style="margin-bottom: 20px;">📝 ຂັ້ນຕອນການສັ່ງ</h2>
-<div style="background: #FFF9C4; padding: 15px; border-radius: 15px; margin-bottom: 20px; font-size: 15px; color: #854d0e; border: 1px solid #fde68a;">
+<h2 style="margin-bottom: 22px;">📝 ຂັ້ນຕອນການສັ່ງ</h2>
+<div style="background: #FFF9C4; padding: 16px; border-radius: 18px; margin-bottom: 22px; font-size: 15px; color: #854d0e; border: 1.5px solid #fde68a;">
     <strong>📋 ເງື່ອນໄຂ:</strong> ໂອນ = ໄດ້ຄິວ (ງານເລັ່ງ + 10,000)
 </div>
 
@@ -255,7 +256,7 @@ border: 1.5px solid var(--main);
 </div>
 
 <div class="section">
-<h2 style="margin-bottom: 20px;">📂 ຜົນງານຂອງທາງຮ້ານ</h2>
+<h2 style="margin-bottom: 22px;">📂 ຜົນງານຂອງທາງຮ້ານ</h2>
 
 <div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1WjCwrkky7qDlvRbUPizUoaJ118I3OUAs'">
     <span>ແນວເກມກຶ່ງAds</span><span class="price-tag">ເບິ່ງງານ ✨</span>
@@ -274,7 +275,7 @@ border: 1.5px solid var(--main);
 </div>
 
 <div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1iXWdlOwl15NhRBaQHCxdWvWYg_oH7t_N'">
-    <span>ແນວຫນ້າຮັກ+ລຽບໆ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+    <span>ແນວຫນ້າຮັກ+ລຽบໆ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
 </div>
 
 <div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1LLL7vUBMtapUIxY_4NVEW_bM7_qQJPHq'">
@@ -291,7 +292,7 @@ border: 1.5px solid var(--main);
 </div>
 
 <div class="section">
-    <h2 style="margin-bottom: 20px;">⏳ ລະຍະເວລາການເຮັດງານ</h2>
+    <h2 style="margin-bottom: 22px;">⏳ ລະຍະເວລາການເຮັດງານ</h2>
     <div class="time-box">
         <div class="time-item"><span>⚡️ ໄວສຸດ:</span> <strong>5 ຊົ່ວໂມງ</strong></div>
         <div class="time-item"><span>✅ ປົກກະຕິ:</span> <strong>12 - 24 ຊົ່ວໂມງ</strong></div>
@@ -299,7 +300,7 @@ border: 1.5px solid var(--main);
     </div>
 </div>
 
-<div class="footer">
+<div class="footer center">
 <a href="https://www.facebook.com/share/14WkotdfjdV/" class="btn btn-main" style="width: 100%;">ຕິດຕໍ່ສອບຖາມ Facebook 🎀</a>
 <p class="small">© 2026 Kataiy Store | Nammork Ssv</p>
 </div>

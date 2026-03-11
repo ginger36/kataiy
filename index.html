@@ -9,14 +9,14 @@
 
 <style>
 :root{
-/* ປັບໂທນສີພັດເທວໃໝ່: ຊົມພູອ່ອນ (Soft Pink) */
---bg:#FFF0F6; 
---main:#FFC1E3; 
---accent:#E1BEE7; 
---dark:#880E4F; 
+/* ສີຫຼັກ: ມ່ວງພັດເທວ | ສີຮອງ: ຊົມພູອ່ອນ */
+--bg:#F8F4FF; 
+--main:#D1C4E9; 
+--accent:#FCE4EC; 
+--dark:#5E35B1; 
 --white:#FFFFFF;
---glow:rgba(255,193,227,0.5);
---status-green: #4CAF50; 
+--glow:rgba(209,196,233,0.5);
+--status-color: var(--dark); /* ປ່ຽນຈຸດກະພິບໃຫ້ເປັນສີຕາມທີມ (ມ່ວງເຂັ້ມ) */
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Mitr',sans-serif;}
@@ -38,7 +38,7 @@ background:var(--white);
 border-radius:25px;
 padding:25px 20px;
 margin-bottom:20px;
-box-shadow:0 10px 25px rgba(136,14,79,0.08);
+box-shadow:0 10px 25px rgba(94,53,177,0.08);
 border:2px solid var(--main);
 }
 
@@ -92,7 +92,7 @@ color:var(--dark);
 display: flex;
 align-items: center;
 justify-content: center;
-gap: 8px;
+gap: 10px;
 }
 
 .btn-main{
@@ -106,20 +106,20 @@ box-shadow: 0 4px 15px var(--glow);
     box-shadow: 0 6px 20px var(--glow);
 }
 
-/* แอนิเมชันจุดสถานะกระพริบช้าๆ */
+/* ແອນິເມຊັນ ຈຸດສະຖານະກະພິບ (ສີຕາມທີມ) */
 @keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1; }
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
 .status-dot {
     width: 10px;
     height: 10px;
-    background-color: var(--status-green);
+    background-color: var(--status-color);
     border-radius: 50%;
-    animation: blink 2s infinite; 
-    box-shadow: 0 0 5px var(--status-green);
+    animation: blink 2.5s infinite ease-in-out; /* ກະພິບຊ້າໆ ນຸ້ມນວນ */
+    box-shadow: 0 0 8px var(--main);
 }
 
 .step{
@@ -146,7 +146,7 @@ display:flex;
 justify-content:space-between;
 align-items: center;
 margin-bottom:10px;
-background:#FFFBFD;
+background:#FBF9FF;
 padding:12px 18px;
 border-radius:18px;
 cursor: pointer;
@@ -169,7 +169,7 @@ border: 1px solid var(--main);
 }
 
 .time-box{
-    background: #FFFAFC;
+    background: #FDFBFF;
     border: 1px solid var(--main);
     padding: 15px;
     border-radius: 20px;
@@ -215,7 +215,7 @@ border: 1px solid var(--main);
     <div style="font-size:14px; color:var(--dark); background:var(--accent); padding:18px; border-radius:20px; border: 1px dashed var(--dark);">
         <h2 style="text-align: center; font-size: 18px; margin-bottom: 12px;">📍 ກົດຂອງຮ້ານ 📍</h2>
         <p style="margin-bottom: 5px;">• ທາງຮ້ານຈະບໍ່ຮັບເຮັດງານຕາມຕົວຢ່າງຮ້ານອື່ນ</p>
-        <p>• ຫ້ามເອົາງານຂອງທາງຮ້ານໄປເປັນຕົວຢ່າງໃຫ້ຮ້ານອື່ນເຮັດ</p>
+        <p>• ຫ້າມເອົາງານຂອງທາງຮ້ານໄປເປັນຕົວຢ່າງໃຫ້ຮ້ານອື່ນເຮັດ</p>
     </div>
 </div>
 

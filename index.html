@@ -9,14 +9,14 @@
 
 <style>
 :root{
-/* ສີຫຼັກ: ມ່ວງພັດເທວ | ສີຮອງ: ຊົມພູອ່ອນ */
---bg:#F8F4FF; 
---main:#D1C4E9; 
---accent:#FCE4EC; 
---dark:#5E35B1; 
---white:#FFFFFF;
---glow:rgba(209,196,233,0.5);
---status-color: var(--dark); /* ປ່ຽນຈຸດກະພິບໃຫ້ເປັນສີຕາມທີມ (ມ່ວງເຂັ້ມ) */
+/* ໂທນສີພັດເທວ ມ່ວງ-ຊົມພູອ່ອນ ທີ່ນຸ້ມນວນຂຶ້ນ */
+--bg: #FDF2F8; /* ພື້ນຫຼັງຊົມພູອ່ອນສຸດໆ */
+--main: #F3D1F4; /* ມ່ວງພັດເທວອ່ອນ */
+--accent: #FFDDEE; /* ຊົມພູພັດເທວ */
+--dark: #9D65AD; /* ມ່ວງເຂັ້ມສຳລັບຕົວໜັງສື */
+--white: #FFFFFF;
+--glow: rgba(243, 209, 244, 0.6);
+--status-color: #BA68C8; /* ສີມ່ວງສະຫວ່າງສຳລັບຈຸດສະຖານະ */
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Mitr',sans-serif;}
@@ -25,6 +25,8 @@ body{
 background:var(--bg);
 display:flex;
 justify-content:center;
+/* ເພີ່ມພື້ນຫຼັງລວດລາຍໜ້າຮັກໆ */
+background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNGMUVDRjkiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMCAwaDR2NGgwSDBWMHpNMjQgMjRoNHY0aC00di00ek00IDRoNHY0SDRWNHoyMCAyMGg0djRoLTR2LTR6TTAgMjRoNHY0SDB2LTR6TTI0IDBoNHY0aC00VjB6TTQgMjRoNHY0SDR2LTR6TTI0IDRoNHY0aC00VjR6TTEyIDEyaDR2NGgtNHY0ek0xMiAwaDR2NEgwVjB6TTEyIDI0aDR2NEgwdi00ek0yNCAxMmg0djRoLTR2LTR6TTAgMTJoNHY0SDB2LTR6TTEyIDRoNHY0aC00VjR6TTM2IDM2aDR2NEgzNnYtNHpNMzYgMGg0djRIMzZWMHpNMCAzNmg0djRIMFYzNnpNMzYgMjRoNHY0SDM2di00ek0yNCAzNmh0djRIMjR2LTR6TTQgMzZoNHY0SDR2LTR6TTM2IDRoNHY0SDM2VjR6TTM2IDEyaDR2NGgzNnYtNHpNMTEgMTFoMnYyaC0ydi0yek0xMSAyN2gydjJoLTJ2LTJ6TTI3IDExaDJ2MmgtMnYtMnpNMjcgMjdoMnYyaC0ydi0yek0xMSAyaDJ2MmgtMnYtMnpNMjcgMmgydjJoLTJ2LTJ6TTEgMTloMnYyaC0ydi0yek0xOSAxaDJ2MmgtMnYtMnpNMTkgMTloMnYyaC0ydi0yek0xOSAyeDJ2MmgtMnYtMnpNMjcgMTloMnYyaC0ydi0yek0xMSAxaDJ2MmgtMnYtMnpNMTEgMTloMnYyaC0ydi0yek0xIDI3aDJ2MmgtMnYtMnpNMSA5aDJ2MmgtMnYtMnpNOSAxaDJ2MmgtMnYtMnpNOSAxOWgydjJoLTJ2LTJ6TTkgMjd4MnYyaC0ydi0yek0xOCAxOGgydjJoLTJ2LTJ6TTE4IDI4aDJ2MmgtMnYtMnpNMjggMThoMnYyaC0ydi0yek0yOCAyOGgydjJoLTJ2LTJ6TTE4IDhoMnYySDE4Vjh6TTI4IDhoMnYySDI4Vjh6TTEgMWh0djRIMVYxeTBNMjAgMjRoNHY0SDIwdi00ek0wIDQwSDQwVjBIMFY0MHpNMjAgMjBoNHY0SDIwdi00ek0wIDBIMTRWMTRIMFYwek0xNCAwSDQwVjQwSDE0VjB6TTAgMTRING9WMTRIMHYyek0wIDI0SDRWMjRIME40MHpNMCAzNEg0MFYzNEgwVjQwek0xNCAxNEgyMFYzNEgxNFYzNHpNMjAgMTRIMjZWMzRIMjBWMzR6TTI2IDE0SDMyVjM0SDI2VjM0ek0zMiAxNEgzOFYzNEgzMlYzNHpNMzggMTRINDBWMzRIMzhWMzR6TTE0IDM0SDIwVjQwSDE0VjQwek0yMCAzNEgyNlY0MEgyMFY0MHpNMjYgMzRIMzJWNDBIMjZWMzR6TTMyIDM0SDM4VjQwSDMyVjQwek0zOCAzNEg0MFY0MEgzOFYzNHpNMCA0MEg0MFYzNEgwVjQwek0wIDBIMTRWMTRIMFYwek0xNCAwSDQwVjQwSDE0VjB6TTAgMTRING9WMTRIMHYyek0wIDI0SDRWMjRIME40MHpNMCAzNEg0MFYzNEgwVjQwek0xNCAxNEgyMFYzNEgxNFYzNHpNMjAgMTRIMjZWMzRIMjBWMzR6TTI2IDE0SDMyVjM0SDI2VjM0ek0zMiAxNEgzOFYzNEgzMlYzNHpNMzggMTRINDBWMzRIMzhWMzR6TTE0IDM0SDIwVjQwSDE0VjQwek0yMCAzNEgyNlY0MEgyMFY0MHpNMjYgMzRIMzJWNDBIMjZWMzR6TTMyIDM0SDM4VjQwSDMyVjQwek0zOCAzNEg0MFY0MEgzOFYzNHpNMCA0MEg0MFYzNEgwVjQweSIvPjwvZz48L2c+PC9zdmc+');
 }
 
 .container{
@@ -35,11 +37,19 @@ padding:20px 15px 40px;
 
 .section{
 background:var(--white);
-border-radius:25px;
-padding:25px 20px;
-margin-bottom:20px;
-box-shadow:0 10px 25px rgba(94,53,177,0.08);
-border:2px solid var(--main);
+border-radius:30px; /* ມົນຂຶ້ນ */
+padding:30px 25px;
+margin-bottom:25px;
+box-shadow:0 12px 30px rgba(220, 180, 220, 0.25); /* ເງົາທີ່ນຸ້ມນວນ */
+border:3px solid var(--accent); /* ຂອບສີຊົມພູ */
+position: relative;
+overflow: hidden;
+transition: transform 0.3s ease;
+}
+
+/* ເພີ່ມເອັບເຟັກເວລາອໍເວີ */
+.section:hover {
+    transform: translateY(-3px);
 }
 
 h1,h2,h3{color:var(--dark); font-weight: 500;}
@@ -50,8 +60,10 @@ width:150px;height:150px;
 border-radius:50%;
 overflow:hidden;
 margin:0 auto 20px;
-border: 4px solid var(--white);
-box-shadow:0 6px 20px var(--glow);
+border: 6px solid var(--white); /* ຂອບສີຂາວເຂັ້ມ */
+box-shadow:0 8px 25px var(--glow);
+/* ເພີ່ມກອບຮູບຫົວໃຈອ້ອມໂລໂກ້ */
+position: relative;
 }
 
 .logo img{width:100%;height:100%;object-fit:cover;}
@@ -60,131 +72,184 @@ box-shadow:0 6px 20px var(--glow);
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:10px;
-margin-bottom:20px;
+gap:12px;
+margin-bottom:25px;
 }
 
 .badge{
-background:var(--white);
-padding:8px 16px;
+background:linear-gradient(135deg, var(--white), #FFF5FA);
+padding:10px 20px;
 border-radius:25px;
-border: 1px solid var(--main);
-font-size:13px;
+border: 2px solid var(--main);
+font-size:14px;
 color:var(--dark);
-box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+transition: 0.3s ease;
+}
+
+.badge:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, var(--accent), var(--white));
 }
 
 .btn{
 display:block;
 text-align:center;
-padding:14px;
-border-radius:30px;
+padding:16px;
+border-radius:35px; /* ມົນຂຶ້ນ */
 text-decoration:none;
-margin-top:15px;
+margin-top:20px;
 font-weight:500;
-transition: 0.3s;
+transition: all 0.4s ease;
+position: relative;
+overflow: hidden;
 }
 
 .btn-outline{
 background:var(--white);
-border:2px dashed var(--main);
+border:3px dashed var(--main); /* ເສັ້ນປະເຂັ້ມຂຶ້ນ */
 color:var(--dark);
 display: flex;
 align-items: center;
 justify-content: center;
-gap: 10px;
+gap: 12px;
+font-size: 15px;
+}
+
+.btn-outline:hover {
+    background-color: #FAF5FF;
+    border-style: solid;
 }
 
 .btn-main{
 background: linear-gradient(135deg, var(--main), var(--accent));
 color:var(--dark);
-box-shadow: 0 4px 15px var(--glow);
+box-shadow: 0 6px 18px var(--glow);
+font-size: 16px;
+border: none;
+}
+
+.btn-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.5s;
+}
+
+.btn-main:hover::before {
+    left: 100%;
 }
 
 .btn-main:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px var(--glow);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px var(--glow);
 }
 
 /* ແອນິເມຊັນ ຈຸດສະຖານະກະພິບ (ສີຕາມທີມ) */
 @keyframes blink {
     0% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 0.5; transform: scale(0.95); }
     100% { opacity: 1; transform: scale(1); }
 }
 
 .status-dot {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     background-color: var(--status-color);
     border-radius: 50%;
     animation: blink 2.5s infinite ease-in-out; /* ກະພິບຊ້າໆ ນຸ້ມນວນ */
-    box-shadow: 0 0 8px var(--main);
+    box-shadow: 0 0 10px var(--main);
 }
 
 .step{
 display:flex;
 align-items:center;
-gap:12px;
-margin-bottom:12px;
+gap:15px;
+margin-bottom:15px;
 }
 
 .step-num{
-background:var(--main);
+background:linear-gradient(135deg, var(--main), var(--accent));
 color:var(--dark);
-width:28px;height:28px;
+width:32px;height:32px;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:14px;
+font-size:16px;
 font-weight: bold;
+box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
 .price-row{
 display:flex;
 justify-content:space-between;
 align-items: center;
-margin-bottom:10px;
-background:#FBF9FF;
-padding:12px 18px;
-border-radius:18px;
+margin-bottom:12px;
+background:#FFFBFD;
+padding:15px 20px;
+border-radius:20px;
 cursor: pointer;
-transition: 0.3s;
-border: 1px solid transparent;
+transition: 0.3s ease;
+border: 2px solid transparent;
 }
 
 .price-row:hover{
-    background: var(--main);
+    background: #FFF5FB;
+    border: 2px solid var(--accent);
+    transform: translateX(5px);
+}
+
+.price-row span {
+    font-size: 15px;
     color: var(--dark);
 }
 
 .price-tag{
 background:var(--white);
 color:var(--dark);
-padding:4px 14px;
+padding:5px 15px;
 border-radius:20px;
-font-size:13px;
-border: 1px solid var(--main);
+font-size:14px;
+border: 2px solid var(--main);
 }
 
 .time-box{
     background: #FDFBFF;
-    border: 1px solid var(--main);
-    padding: 15px;
-    border-radius: 20px;
-    margin-top: 10px;
+    border: 2px solid var(--main);
+    padding: 20px;
+    border-radius: 25px;
+    margin-top: 15px;
 }
 
 .time-item{
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
-    margin-bottom: 6px;
+    font-size: 15px;
+    margin-bottom: 8px;
     color: var(--dark);
 }
 
-.small{font-size:12px; color: var(--dark); opacity:.6; margin-top:20px;}
+.small{font-size:13px; color: var(--dark); opacity:.7; margin-top:25px;}
+
+/* ເພີ່ມອົງປະກອບຕົກແຕ່ງໜ້າຮັກໆ */
+.section::after {
+    content: '🎀';
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 1.2rem;
+    opacity: 0.3;
+}
+
+.section-rules::after { content: '📍'; }
+.section-steps::after { content: '📝'; }
+.section-portfolio::after { content: '✨'; }
+.section-time::after { content: '⏳'; }
 </style>
 </head>
 
@@ -195,8 +260,8 @@ border: 1px solid var(--main);
 <div class="logo">
 <img src="logo.jpg" alt="Kataiy Logo">
 </div>
-<h1>Kataiy Store</h1>
-<p style="color:var(--dark); opacity:.8; margin:10px 0 20px;">
+<h1 style="font-size: 2rem; margin-bottom: 5px;">Kataiy Store</h1>
+<p style="color:var(--dark); opacity:.8; margin:10px 0 25px; font-size: 1.1rem;">
 ສະບາຍດີ ຍິນດີຕ້ອນຮັບເຂົ້າສູ່ຮ້ານ Kataiy 🎀
 </p>
 
@@ -211,21 +276,21 @@ border: 1px solid var(--main);
 </a>
 </div>
 
-<div class="section">
-    <div style="font-size:14px; color:var(--dark); background:var(--accent); padding:18px; border-radius:20px; border: 1px dashed var(--dark);">
-        <h2 style="text-align: center; font-size: 18px; margin-bottom: 12px;">📍 ກົດຂອງຮ້ານ 📍</h2>
-        <p style="margin-bottom: 5px;">• ທາງຮ້ານຈະບໍ່ຮັບເຮັດງານຕາມຕົວຢ່າງຮ້ານອື່ນ</p>
+<div class="section section-rules">
+    <div style="font-size:15px; color:var(--dark); background:var(--accent); padding:20px; border-radius:20px; border: 2px dashed var(--dark);">
+        <h2 style="text-align: center; font-size: 1.3rem; margin-bottom: 15px;">📍 ກົດຂອງຮ້ານ 📍</h2>
+        <p style="margin-bottom: 8px;">• ທາງຮ້ານຈະບໍ່ຮັບເຮັດງານຕາມຕົວຢ່າງຮ້ານອື່ນ</p>
         <p>• ຫ້າມເອົາງານຂອງທາງຮ້ານໄປເປັນຕົວຢ່າງໃຫ້ຮ້ານອື່ນເຮັດ</p>
     </div>
 </div>
 
-<div class="section">
-<h2>📋 ຂັ້ນຕອນການສັ່ງ</h2>
-<div style="background: #FFF9C4; padding: 12px; border-radius: 15px; margin: 15px 0; font-size: 14px; color: #854d0e; border: 1px solid #fde68a;">
+<div class="section section-steps">
+<h2>📝 ຂັ້ນຕອນການສັ່ງ</h2>
+<div style="background: #FFF9C4; padding: 15px; border-radius: 18px; margin: 20px 0; font-size: 15px; color: #854d0e; border: 2px solid #fde68a;">
     <strong>📋 ເງື່ອນໄຂ:</strong> ໂອນ = ໄດ້ຄິວ (ງານເລັ່ງ + 10,000)
 </div>
 
-<div class="step"><div class="step-num">1</div><div>ເລືອກbox ຫຼື ຕົວຢ່າງຂອງທາງຮ້ານ</div></div>
+<div class="step"><div class="step-num">1</div><div>ເລືອກ box ຫຼື ຕົວຢ່າງຂອງທາງຮ້ານ</div></div>
 <div class="step"><div class="step-num">2</div><div>ຊຳລະເງິນຄ່າປ້າຍ</div></div>
 <div class="step"><div class="step-num">3</div><div>ກອກຟອມຂໍ້ມູນທີ່ທາງຮ້ານສົ່ງໃຫ້</div></div>
 <div class="step"><div class="step-num">4</div><div>ຖ້າຮັບງານ</div></div>
@@ -233,43 +298,43 @@ border: 1px solid var(--main);
 <a href="https://drive.google.com/drive/folders/1v07-1ayQBM6YzG1lwGnRHSNcgFLBE9S1" class="btn btn-main">⭐️ ຕົວຢ່າງຕູນ + ຂອງຕຕ ຄລິກ</a>
 </div>
 
-<div class="section">
+<div class="section section-portfolio">
 <h2>📂 ຜົນງານຂອງທາງຮ້ານ</h2>
 
 <div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1WjCwrkky7qDlvRbUPizUoaJ118I3OUAs'">
-    <span>ແນວເກມກຶ່ງAds</span><span class="price-tag">ເບິ່ງງານ</span>
+    <span>แນວເກມກຶ່ງAds</span><span class="price-tag">ເບິ່ງງານ ✨</span>
 </div>
 
 <div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1WynLKq_16qWhh6Rz14G_ANUclLUyO1lB'">
-    <span>ແນວລຽບໆ+ເກມ</span><span class="price-tag">ເບິ່ງງານ</span>
+    <span>ແນວລຽບໆ+ເກມ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
 </div>
 
 <div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1vhtzkVD4nyX70as81QNOtxgx0eid1oED'">
-    <span>ແນວມືດ</span><span class="price-tag">ເບິ່ງງານ</span>
+    <span>ແນວມືດ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
 </div>
 
 <div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/13SV21IB_4mmnjLwZ28ySzhraSOs6TOFQ'">
-    <span>ແນວເຮດ</span><span class="price-tag">ເບິ່ງງານ</span>
+    <span>ແນວເຮດ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
 </div>
 
 <div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1iXWdlOwl15NhRBaQHCxdWvWYg_oH7t_N'">
-    <span>ແນວຫນ້າຮັກ+ລຽບໆ</span><span class="price-tag">ເບິ່ງງານ</span>
+    <span>ແນວຫນ້າຮັກ+ລຽບໆ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
 </div>
 
 <div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1LLL7vUBMtapUIxY_4NVEW_bM7_qQJPHq'">
-    <span>ໂປຣໄຟລ໌</span><span class="price-tag">ເບິ່ງງານ</span>
+    <span>ໂປຣໄຟລ໌</span><span class="price-tag">ເບິ່ງງານ ✨</span>
 </div>
 
 <div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1H7NV_ti-AusWZsEUT0nGu2wLhbvEP4sj'">
-    <span>ຫົວປ້າຍ-ລາຍນ້ຳ</span><span class="price-tag">ເບິ່ງງານ</span>
+    <span>ຫົວປ້າຍ-ລາຍນ້ຳ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
 </div>
 
 <div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1lgXrKVEoEyFgByepZo3TNtaGm7GYd1zF'">
-    <span>ຮວມປ້າຍປ່ອຍ F</span><span class="price-tag">ເບິ່ງງານ</span>
+    <span>ຮວມປ້າຍປ່ອຍ F</span><span class="price-tag">ເບິ່ງງານ ✨</span>
 </div>
 </div>
 
-<div class="section">
+<div class="section section-time">
     <h2>⏳ ລະຍະເວລາການເຮັດງານ</h2>
     <div class="time-box">
         <div class="time-item"><span>⚡️ ໄວສຸດ:</span> <strong>5 ຊົ່ວໂມງ</strong></div>

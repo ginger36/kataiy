@@ -24,23 +24,24 @@ body{
 background: var(--bg-purple); 
 display:flex;
 justify-content:center;
-/* เพิ่มพื้นหลังลายอิโมจิ */
-background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHRleHQgeD0iMTAiIHk9IjMwIiBmb250LXNpemU9IjIwIj7wnkeePC90ZXh0Pjx0ZXh0IHg9IjUwIiB5PSIzMCIgZm9udC1zaXplPSIyMCI+8J+NrTwvdGV4dD48dGV4dCB4PSIxMCIgeT0iNzAiIGZvbnQtc2l6ZT0iMjAiPvCqurvPC90ZXh0Pjx0ZXh0IHg9IjUwIiB5PSI3MCIgZm9udC1zaXplPSIyMCI+8J+OhjwvdGV4dD48L3N2Zz4=');
-background-size: 80px 80px; /* ปรับขนาดลายพื้นหลัง */
-background-attachment: fixed; /* ให้พื้นหลังอยู่เฉยๆ เวลากลิ้ง */
+/* ปรับพื้นหลังให้มีอิโมจิเยอะขึ้นพอประมาณ */
+background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIiB2aWV3Qm94PSIwIDAgMTUwIDE1MCI+PHRleHQgeD0iMTAiIHk9IjMwIiBmb250LXNpemU9IjE4Ij7wnkeePC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSI0MCIgZm9udC1zaXplPSIxOCI+8J+NrTwvdGV4dD48dGV4dCB4PSIzMCIgeT0iOTAiIGZvbnQtc2l6ZT0iMTgiPvCqurvPC90ZXh0Pjx0ZXh0IHg9Ijk1IiB5PSIxMTAiIGZvbnQtc2l6ZT0iMTgiPvwnkeePC90ZXh0Pjx0ZXh0IHg9IjEwIiB5PSIxNDAiIGZvbnQtc2l6ZT0iMTgiPvCPrYQ8L3RleHQ+PHRleHQgeD0iMTI1IiB5PSI1MCIgZm9udC1zaXplPSIxOCI+8JqqurvPC90ZXh0Pjwvc3ZnPg==");
+background-size: 120px 120px; 
+background-attachment: fixed;
 }
 
 .container{
 max-width:500px;
 width:100%;
 padding:20px 15px 40px;
-position: relative; /* สำหรับจัดตำแหน่งของตกแต่งรอบโลโก้ */
+position: relative;
 }
 
 .center { text-align: center; }
 
 .section{
-background: rgba(255, 255, 255, 0.8); /* เพิ่มความทึบแสงเล็กน้อยเพื่อให้ลอยจากพื้นหลังอิโมจิ */
+/* ปรับพื้นหลังกล่องให้ขาวขึ้นเล็กน้อยเพื่อให้อ่านง่ายขึ้นเมื่อพื้นหลังมีอิโมจิเยอะ */
+background: rgba(255, 255, 255, 0.85); 
 border-radius:30px; 
 padding:30px 25px;
 margin-bottom:25px;
@@ -67,10 +68,9 @@ position: relative;
     border: none;
 }
 
-/* ส่วนครอบโลโก้และอิโมจิ */
 .logo-wrapper {
     position: relative;
-    width: 200px; /* ขยายขนาดเล็กน้อยเพื่อรองรับอิโมจิรอบๆ */
+    width: 200px;
     height: 200px;
     margin: 0 auto 10px;
     display: flex;
@@ -85,22 +85,21 @@ overflow:hidden;
 border: 5px solid var(--white);
 box-shadow: 0 8px 25px rgba(209, 179, 250, 0.8);
 position: relative;
-z-index: 2; /* ให้โลโก้อยู่ทับอิโมจิเล็กน้อย */
+z-index: 2;
 }
 .logo img{ width:100%; height:100%; object-fit:cover; }
 
-/* สไตล์อิโมจิรอบโลโก้ */
 .emoji-decor {
     position: absolute;
-    font-size: 24px;
+    font-size: 26px;
     z-index: 1;
-    animation: floating 3s ease-in-out infinite; /* ใส่แอนิเมชั่นลอยเบาๆ */
+    animation: floating 3s ease-in-out infinite;
 }
 
 @keyframes floating {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0px); }
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
 }
 
 .badge{
@@ -200,10 +199,10 @@ transition: 0.2s;
 
     <div class="center" style="margin-bottom: 30px;">
         <div class="logo-wrapper">
-            <span class="emoji-decor" style="top: 0; left: 10px; animation-delay: 0s;">💕</span>
-            <span class="emoji-decor" style="top: -10px; right: 20px; animation-delay: 0.5s;">🍬</span>
-            <span class="emoji-decor" style="bottom: 15px; left: 0px; animation-delay: 1s;">🪻</span>
-            <span class="emoji-decor" style="bottom: 0px; right: 10px; animation-delay: 1.5s;">🎀</span>
+            <span class="emoji-decor" style="top: 0; left: 0px; animation-delay: 0s;">🎀</span>
+            <span class="emoji-decor" style="top: -15px; right: 15px; animation-delay: 0.5s;">🍬</span>
+            <span class="emoji-decor" style="bottom: 10px; left: -10px; animation-delay: 1s;">🪻</span>
+            <span class="emoji-decor" style="bottom: -5px; right: 5px; animation-delay: 1.5s;">💕</span>
             
             <div class="logo">
                 <img src="242_20260207172619.jpeg" alt="Kataiy Logo">
@@ -228,11 +227,11 @@ transition: 0.2s;
         </div>
     </div>
 
-    <div class="section" style="background: rgba(255, 255, 255, 0.7);">
+    <div class="section">
         <div class="rule-box-soft">
             <h2 class="center" style="margin-bottom: 15px; font-size: 1.3rem;">📍 ກົດລະບຽບຂອງຮ້ານ 📍</h2>
-            <p style="margin-bottom: 8px;">• ບໍ່ຮັບກັອບປີ້ຜົນງານຈາກຮ້ານອື່นທຸກກໍລະນີ</p>
-            <p>• ຫ້າມນຳຜົນງານຂອງຮ້ານໄປເປັນແບບໃຫ້ຮ້ານອື່ນເຮັດ</p>
+            <p style="margin-bottom: 8px;">• ບໍ່ຮັບກັອບປີ້ຜົນງານຈາກຮ້ານອື່ນທຸກກໍລະນີ</p>
+            <p>• ຫ້ามນຳຜົນງານຂອງຮ້ານໄປເປັນແບບໃຫ້ຮ້ານອື່ນເຮັດ</p>
         </div>
     </div>
 
@@ -240,16 +239,16 @@ transition: 0.2s;
         <h2 style="margin-bottom: 20px;">📂 ໝວດໝູ່ຜົນງານ (Drive)</h2>
         
         <a href="https://drive.google.com/drive/folders/1WjCwrkky7qDlvRbUPizUoaJ118I3OUAs" target="_blank" class="price-row">
-            <span>ແນວເກມກຶ່ງ Ads</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+            <span>ແນວເກມກຶ່ງ Ads</span><span class="price-tag">เບິ່ງວຽກ ✨</span>
         </a>
         <a href="https://drive.google.com/drive/folders/1WynLKq_16qWhh6Rz14G_ANUclLUyO1lB" target="_blank" class="price-row">
-            <span>ແນວລຽບໆ + ເກม</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+            <span>ແນວລຽບໆ + ເກม</span><span class="price-tag">เບິ່ງວຽก ✨</span>
         </a>
         <a href="https://drive.google.com/drive/folders/1vhtzkVD4nyX70as81QNOtxgx0eid1oED" target="_blank" class="price-row">
             <span>ແນວມືດ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
         </a>
         <a href="https://drive.google.com/drive/folders/13SV21IB_4mmnjLwZ28ySzhraSOs6TOFQ" target="_blank" class="price-row">
-            <span>ແນວເຮດ</span><span class="price-tag">ເບິ່ງວຽก ✨</span>
+            <span>ແນວເຮດ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
         </a>
         <a href="https://drive.google.com/drive/folders/1iXWdlOwl15NhRBaQHCxdWvWYg_oH7t_N" target="_blank" class="price-row">
             <span>ແນວໜ້າຮັກ + ທຳມະດາ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
@@ -280,12 +279,12 @@ transition: 0.2s;
             <strong>📋 ເງື່ອນໄຂ:</strong> ໂອນເງິນ = ຈອງຄິວ (ວຽກດ່ວນ + 10,000 ກີບ)
         </div>
         
-        <div class="step-item"><div class="step-num">1</div> ເລືອກແບບ ຫຼື ບັອກທີ່ຕ້ອງການ</div>
-        <div class="step-item"><div class="step-num">2</div> ຊຳລະເงິນຕາມລາຄາທີ່ແຈ້ງ</div>
+        <div class="step-item"><div class="step-num">1</div> ເລືอกແບບ ຫຼື ບັອກທີ່ຕ້ອງການ</div>
+        <div class="step-item"><div class="step-num">2</div> ຊຳລະເງິນຕາມລາຄາທີ່ແຈ້ງ</div>
         <div class="step-item"><div class="step-num">3</div> ແຈ້ງຂໍ້ມູນລາຍລະອຽດໃນຟອມ</div>
         <div class="step-item"><div class="step-num">4</div> ລໍຖ້າກວດສອບ ແລະ ຮັບວຽກ</div>
 
-        <a href="https://drive.google.com/drive/folders/1v07-1ayQBM6YzG1lwGnRHSNcgFLBE9S1" target="_blank" class="btn-main" style="margin-top:20px; background: var(--main-purple); color:var(--dark-text); box-shadow: none;">⭐️ ຕົວຢ່າງກາຕູນ + ຂອງຕົກແຕ່ງ ຄລິກ</a>
+        <a href="https://drive.google.com/drive/folders/1v07-1ayQBM6YzG1lwGnRHSNcgFLBE9S1" target="_blank" class="btn-main" style="margin-top:20px; background: var(--main-purple); color:var(--dark-text); box-shadow: none;">⭐️ ຕົວຢ່າງກาຕູນ + ຂອງຕົກແຕ່ງ ຄລິກ</a>
     </div>
 
     <div class="center">

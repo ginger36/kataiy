@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="lo">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,20 +9,24 @@
 
 <style>
 :root{
-/* ปรับโทนสีตามบรีฟ: ม่วงผสมชมพูอ่อน */
---bg:#F3E5F5;
---main:#CE93D8;
---dark:#8E24AA;
---white:#FFFFFF;
---glow:rgba(206,147,216,0.4);
+/* สัดส่วนสี: ม่วง 70% | ชมพู 20% | ขาว-เหลือง 10% */
+--bg-purple: #F3E5F5;    
+--main-purple: #D1B3FA;  
+--soft-pink: #FCE4EC;    
+--accent-pink: #F06292;  
+--white: #FFFFFF;        
+--soft-yellow: #FFF9C4;  
+--dark-text: #4A148C;    
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Mitr',sans-serif;}
 
 body{
-background:var(--bg);
+background: var(--bg-purple); 
 display:flex;
 justify-content:center;
+background-image: radial-gradient(var(--main-purple) 0.5px, transparent 0.5px);
+background-size: 20px 20px;
 }
 
 .container{
@@ -31,199 +35,208 @@ width:100%;
 padding:20px 15px 40px;
 }
 
+.center { text-align: center; }
+
+/* กล่องเนื้อหาหลัก */
 .section{
-background:var(--white);
-border-radius:20px;
-padding:25px 20px;
-margin-bottom:20px;
-box-shadow:0 8px 20px rgba(0,0,0,0.05);
-border:2px solid var(--main);
+background: var(--white); 
+border-radius:30px; 
+padding:30px 25px;
+margin-bottom:25px;
+box-shadow: 0 10px 20px rgba(74, 20, 140, 0.05);
+border: none;
+position: relative;
 }
 
-h1,h2,h3{color:var(--dark);}
-.center{text-align:center;}
+/* หัวข้อร้านในกล่องสีขาว (ไม่เอากรอบเส้น) */
+.white-box-title {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 12px 35px;
+    display: inline-block;
+    margin: 15px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* กฎของร้าน: มีเส้นประสีชมพู */
+.rule-box-dashed {
+    background: var(--white);
+    border-radius: 25px;
+    padding: 20px;
+    border: 2px dashed var(--accent-pink);
+    color: var(--dark-text);
+}
 
 .logo{
-width:150px;height:150px;
+width:160px; height:160px;
 border-radius:50%;
 overflow:hidden;
-margin:0 auto 20px;
-box-shadow:0 6px 20px var(--glow);
+margin:0 auto;
+border: 5px solid var(--white);
+box-shadow: 0 8px 25px rgba(209, 179, 250, 0.8);
 }
+.logo img{ width:100%; height:100%; object-fit:cover; }
 
-.logo img{width:100%;height:100%;object-fit:cover;}
-
-.badges{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:10px;
-margin-bottom:20px;
-}
-
+/* Badge ทั่วไป (สีม่วง) */
 .badge{
-background:#fff;
-padding:8px 16px;
-border-radius:25px;
-box-shadow:0 4px 10px var(--glow);
-font-size:13px;
-color:var(--dark);
+background: var(--main-purple);
+padding:8px 18px;
+border-radius:20px;
+font-size:14px;
+color: var(--dark-text);
+font-weight: 500;
+display: inline-block;
 }
 
-.btn{
-display:block;
-text-align:center;
-padding:14px;
-border-radius:25px;
-text-decoration:none;
-margin-top:15px;
-font-weight:500;
+/* Badge สีขาวตามสั่ง */
+.badge-white {
+    background: var(--white);
+    border: 1px solid #eee;
 }
 
-.btn-outline{
-background:#fff;
-border:2px dashed var(--main);
-color:var(--dark);
-}
-
+/* ปุ่มหลักด้านล่าง */
 .btn-main{
-background:var(--main);
-color:#fff;
+background: linear-gradient(135deg, var(--main-purple), var(--accent-pink));
+color: var(--white);
+padding: 16px;
+border-radius: 35px;
+display: block;
+text-align: center;
+text-decoration: none;
+font-weight: 500;
+box-shadow: 0 5px 15px rgba(240, 98, 146, 0.3);
+transition: 0.3s;
 }
 
-.step{
-display:flex;
-align-items:center;
-gap:12px;
-margin-bottom:12px;
-}
-
-.step-num{
-background:var(--main);
-color:#fff;
-width:26px;height:26px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:13px;
-}
-
+/* แถวรายการผลงาน */
 .price-row{
 display:flex;
 justify-content:space-between;
+align-items: center;
 margin-bottom:10px;
-background:#fffcfd;
-padding:10px 15px;
-border-radius:15px;
+background: var(--bg-purple);
+padding:14px 20px;
+border-radius:20px;
+cursor: pointer;
 }
 
 .price-tag{
-background:var(--main);
-color:#fff;
-padding:3px 12px;
+background: var(--white);
+padding:5px 15px;
 border-radius:20px;
-font-size:14px;
-}
-
-.footer{
-text-align:center;
-margin-top:30px;
-}
-
-.socials{
-display:flex;
-gap:8px;
-justify-content:center;
-margin-top:15px;
-}
-
-.socials a{
-flex:1;
-max-width:100px;
-text-align:center;
-padding:8px;
-border-radius:25px;
-background:#fff;
-text-decoration:none;
-color:var(--dark);
 font-size:13px;
-border:1px solid #ffeef5;
+color: var(--accent-pink);
+border: 1px solid var(--accent-pink);
 }
 
-.small{font-size:12px;opacity:.7;margin-top:10px;}
+/* สไตล์พิเศษสำหรับหมวด แນວເກມກຶ່ງAds */
+.ads-special {
+    background: var(--soft-yellow) !important;
+    border: 1px solid #FFD54F;
+}
+
+/* ขั้นตอนการสั่งแบบวงกลมม่วง */
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.step-num {
+    background: var(--main-purple);
+    color: var(--dark-text);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+}
 </style>
 </head>
 
 <body>
 <div class="container">
 
-<div class="section center" style="border:none;box-shadow:none;background:transparent;">
+    <div class="center" style="margin-bottom: 30px;">
+        <div class="logo">
+            <img src="242_20260207172619.jpeg" alt="Kataiy Logo">
+        </div>
+        <div class="white-box-title">
+            <h1 style="color: #4A148C; font-size: 2.1rem;">Kataiy Store</h1>
+        </div>
+        <p style="color: var(--dark-text); margin: 5px 0 15px;">ສະບາຍດີ ຍິນດີຕ້ອນຮັບເຂົ້າສູ່ຮ້ານ Kataiy 🎀</p>
+        <div style="display:flex; justify-content:center; gap:10px;">
+            <div class="badge">🎨 ຮັບອອກແບບປ້າຍ</div>
+            <div class="badge badge-white">🎮 ຮັບເຕີມເກມ</div>
+        </div>
+        <div style="margin-top: 20px; padding: 10px; border: 2px dashed var(--main-purple); border-radius: 50px; background: #fff; display: inline-block; width: 100%;">
+            <span style="color: var(--dark-text);">🟣 ພ້ອມຮັບອໍເດີ ທັກສອບถามໄດ້ເລີຍນ້າ ✨</span>
+        </div>
+    </div>
 
-<div class="logo">
-<img src="logo.jpg" alt="Kataiy Logo">
-</div>
+    <div class="section">
+        <div class="rule-box-dashed">
+            <h2 class="center" style="margin-bottom: 15px; font-size: 1.3rem;">📍 ກົດລະບຽບຂອງຮ້ານ 📍</h2>
+            <p style="margin-bottom: 8px;">• ບໍ່ຮັບກັອບປີ້ຜົນງານຈາກຮ້ານອື່ນທຸກກໍລະນີ</p>
+            <p>• ຫ້າມນຳຜົນງານຂອງຮ້ານໄປເປັນແບບໃຫ້ຮ້ານອື່ນເຮັດ</p>
+        </div>
+    </div>
 
-<h1>Kataiy</h1>
-<p style="color:var(--dark);opacity:.8;margin:10px 0 20px;">
-ยินดีต้อนรับสู่ร้าน Kataiy ยินดีให้บริการค่ะ 🎀
-</p>
+    <div class="section">
+        <h2 style="margin-bottom: 20px;">📝 ຂັ້ນຕອນການສັ່ງຊື້</h2>
+        <div style="background: var(--soft-yellow); padding: 15px; border-radius: 20px; margin-bottom: 20px; color: #856404;">
+            <strong>📋 ເງື່ອນໄຂ:</strong> ໂອນເງິນ = ຈອງຄິວ (ງານດ່ວນ + 10,000 ກີບ)
+        </div>
+        
+        <div class="step-item"><div class="step-num">1</div> ເລືອກແບບ ຫຼື ບັອກທີ່ຕ້ອງການ</div>
+        <div class="step-item"><div class="step-num">2</div> ຊຳລະເງິນຕາມລາຄາທີ່ແຈ້ງ</div>
+        <div class="step-item"><div class="step-num">3</div> ແຈ້ງຂໍ້ມູນລາຍລະອຽດໃນຟອມ</div>
+        <div class="step-item"><div class="step-num">4</div> ລໍຖ້າກວດສອບ ແລະ ຮັບງານ</div>
 
-<div class="badges">
-<div class="badge">🎨 งานเกมกึ่ง Ads</div>
-<div class="badge">✨ แนวเรียบๆ</div>
-<div class="badge">🌙 แนวมืด</div>
-<div class="badge">🧸 หน้าฮัก</div>
-<div class="badge">🖼️ หัวป้าย-ลายนน้ำ</div>
-</div>
+        <a href="#" class="btn-main" style="margin-top:20px; background: var(--main-purple); color:var(--dark-text); box-shadow: none;">⭐️ ເບິ່ງຕົວຢ່າງກາຕູນ ຄລິກ</a>
+    </div>
 
-<a href="#" class="btn btn-outline">
-เช็คคิวงาน (โอน=ได้คิว) ✨
-</a>
-</div>
+    <div class="section">
+        <h2 style="margin-bottom: 20px;">📂 ໝວດໝູ່ຜົນງານ (Ads Style)</h2>
+        
+        <div class="price-row">
+            <span>ແນວເກມ ແລະ Ads</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+        </div>
+        <div class="price-row ads-special">
+            <span style="font-weight: 500;">ແນວເກມກຶ່ງAds</span><span class="price-tag">ເບິ່ງງານ ✧</span>
+        </div>
+        <div class="price-row">
+            <span>ແນວລຽບງ່າຍ + ເກມ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+        </div>
+        <div class="price-row">
+            <span>ໂປຣໄຟລ໌ (Profile)</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+        </div>
+    </div>
 
-<div class="section">
-<h2>📝 ขั้นตอนการสั่ง</h2>
+    <div class="section">
+        <h2 style="margin-bottom: 15px;">⏳ ໄລຍະເວລາການເຮັດວຽກ</h2>
+        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
+            <span>⚡ ໄວສຸດ:</span><b>5 ຊົ່ວໂມງ</b>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
+            <span>✅ ປົກກະຕิ:</span><b>12 - 24 ຊົ່ວໂມງ</b>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 10px 0;">
+            <span>💤 ຊ້າສຸດ:</span><b>4 - 7 ມື້</b>
+        </div>
+    </div>
 
-<div class="step"><div class="step-num">1</div><div>เลือก box หรือ ตัวอย่างของทางร้าน</div></div>
-<div class="step"><div class="step-num">2</div><div>ชำระเงินค่าป้าย</div></div>
-<div class="step"><div class="step-num">3</div><div>กรอกฟอร์มข้อมูลที่ทางร้านส่งให้</div></div>
-<div class="step"><div class="step-num">4</div><div>รอรับงานสวยๆ ได้เลย</div></div>
-
-<a href="https://drive.google.com/drive/folders/1v07-1ayQBM6YzG1lwGnRHSNcgFLBE9S1" class="btn btn-main">⭐️ ตัวอย่างตูน + ของตต คลิ๊ก</a>
-</div>
-
-<div class="section">
-<h2>📂 ผลงานของเรา</h2>
-
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1WynLKq_16qWhh6Rz14G_ANUclLUyO1lB'"><span>แนวเรียบๆ+เกม</span><span class="price-tag">View</span></div>
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1vhtzkVD4nyX70as81QNOtxgx0eid1oED'"><span>แนวมืด</span><span class="price-tag">View</span></div>
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/13SV21IB_4mmnjLwZ28ySzhraSOs6TOFQ'"><span>แนวเฮด</span><span class="price-tag">View</span></div>
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1iXWdlOwl15NhRBaQHCxdWvWYg_oH7t_N'"><span>แนวหน้าฮัก+ธรรมดา</span><span class="price-tag">View</span></div>
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1LLL7vUBMtapUIxY_4NVEW_bM7_qQJPHq'"><span>โปรไฟล์</span><span class="price-tag">View</span></div>
-
-<p class="small" style="color:red; text-align:center;">* งานเร่ง + 10,000 *</p>
-<a href="https://drive.google.com/drive/folders/1lgXrKVEoEyFgByepZo3TNtaGm7GYd1zF" class="btn btn-main">ดูรวมป้ายปล่อย F</a>
-</div>
-
-<div class="footer">
-<a href="https://www.facebook.com/share/14WkotdfjdV/" class="btn btn-main">ติดต่อสอบถาม (Facebook) 🎀</a>
-
-<div class="socials">
-<a href="https://www.facebook.com/share/14WkotdfjdV/">Facebook</a>
-<a href="#">Instagram</a>
-<a href="#">LINE</a>
-</div>
-
-<div style="margin-top:20px; font-size:12px; color:var(--dark); background:rgba(255,255,255,0.5); padding:10px; border-radius:10px;">
-    <strong>📍 กฎของร้าน:</strong> ไม่รับงานตามแบบร้านอื่น และห้ามนำงานร้านไปเป็นตัวอย่างให้ร้านอื่น
-</div>
-
-<p class="small">
-© 2026 Kataiy Store
-</p>
-</div>
+    <div class="center">
+        <a href="https://www.facebook.com/share/14WkotdfjdV/" class="btn-main">ຕິດຕໍ່ສອບຖາມຜ່ານ Facebook (Nammork Ssv) 🎀</a>
+        <p style="font-size: 11px; color: var(--dark-text); margin-top: 20px; opacity: 0.5;">
+            © 2026 Kataiy Store | Nammork Ssv
+        </p>
+    </div>
 
 </div>
 </body>
 </html>
+

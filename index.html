@@ -9,7 +9,6 @@
 
 <style>
 :root{
-/* สัดส่วนสี: ม่วง 70% | ชมพู 20% | ขาว-เหลือง 10% */
 --bg-purple: #F3E5F5;    
 --main-purple: #D1B3FA;  
 --soft-pink: #FCE4EC;    
@@ -37,7 +36,6 @@ padding:20px 15px 40px;
 
 .center { text-align: center; }
 
-/* กล่องเนื้อหาหลัก */
 .section{
 background: var(--white); 
 border-radius:30px; 
@@ -48,7 +46,6 @@ border: none;
 position: relative;
 }
 
-/* หัวข้อร้านในกล่องสีขาว (ไม่เอากรอบเส้น) */
 .white-box-title {
     background: var(--white);
     border-radius: 20px;
@@ -58,7 +55,6 @@ position: relative;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-/* กฎของร้าน: มีเส้นประสีชมพู */
 .rule-box-dashed {
     background: var(--white);
     border-radius: 25px;
@@ -77,7 +73,6 @@ box-shadow: 0 8px 25px rgba(209, 179, 250, 0.8);
 }
 .logo img{ width:100%; height:100%; object-fit:cover; }
 
-/* Badge ทั่วไป (สีม่วง) */
 .badge{
 background: var(--main-purple);
 padding:8px 18px;
@@ -88,13 +83,30 @@ font-weight: 500;
 display: inline-block;
 }
 
-/* Badge สีขาวตามสั่ง */
+/* ປຸ່ມຮັບເຮັດປ້າຍສີຂາວຕາມສັ່ງ */
 .badge-white {
     background: var(--white);
     border: 1px solid #eee;
 }
 
-/* ปุ่มหลักด้านล่าง */
+/* Effect ໄຟສະຖານະກະພິບ */
+.dot-status {
+    height: 10px;
+    width: 10px;
+    background-color: var(--accent-pink);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    box-shadow: 0 0 8px var(--accent-pink);
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
 .btn-main{
 background: linear-gradient(135deg, var(--main-purple), var(--accent-pink));
 color: var(--white);
@@ -108,7 +120,6 @@ box-shadow: 0 5px 15px rgba(240, 98, 146, 0.3);
 transition: 0.3s;
 }
 
-/* แถวรายการผลงาน */
 .price-row{
 display:flex;
 justify-content:space-between;
@@ -129,13 +140,11 @@ color: var(--accent-pink);
 border: 1px solid var(--accent-pink);
 }
 
-/* สไตล์พิเศษสำหรับหมวด แນວເກມກຶ່ງAds */
 .ads-special {
     background: var(--soft-yellow) !important;
     border: 1px solid #FFD54F;
 }
 
-/* ขั้นตอนการสั่งแบบวงกลมม่วง */
 .step-item {
     display: flex;
     align-items: center;
@@ -169,11 +178,14 @@ border: 1px solid var(--accent-pink);
         </div>
         <p style="color: var(--dark-text); margin: 5px 0 15px;">ສະບາຍດີ ຍິນດີຕ້ອນຮັບເຂົ້າສູ່ຮ້ານ Kataiy 🎀</p>
         <div style="display:flex; justify-content:center; gap:10px;">
-            <div class="badge">🎨 ຮັບອອກແບບປ້າຍ</div>
-            <div class="badge badge-white">🎮 ຮັບເຕີມເກມ</div>
+            <div class="badge badge-white">🎨 ຮັບເຮັດປ້າຍ</div>
+            <div class="badge">🎮 ຮັບເຕີມເກມ</div>
         </div>
-        <div style="margin-top: 20px; padding: 10px; border: 2px dashed var(--main-purple); border-radius: 50px; background: #fff; display: inline-block; width: 100%;">
-            <span style="color: var(--dark-text);">🟣 ພ້ອມຮັບອໍເດີ ທັກສອບถามໄດ້ເລີຍນ້າ ✨</span>
+        
+        <div style="margin-top: 20px; padding: 12px; border: 2px dashed var(--main-purple); border-radius: 50px; background: #fff; display: inline-block; width: 100%;">
+            <span style="color: var(--dark-text); font-weight: 500;">
+                <span class="dot-status"></span> ພ້ອມຮັບອໍເດີ້ ທັກສອບຖາມໄດ້ເລີຍນ້າາ ✨
+            </span>
         </div>
     </div>
 
@@ -188,13 +200,13 @@ border: 1px solid var(--accent-pink);
     <div class="section">
         <h2 style="margin-bottom: 20px;">📝 ຂັ້ນຕອນການສັ່ງຊື້</h2>
         <div style="background: var(--soft-yellow); padding: 15px; border-radius: 20px; margin-bottom: 20px; color: #856404;">
-            <strong>📋 ເງື່ອນໄຂ:</strong> ໂອນເງິນ = ຈອງຄິວ (ງານດ່ວນ + 10,000 ກີບ)
+            <strong>📋 ເງື່ອນໄຂ:</strong> ໂອນເງິນ = ຈອງຄິວ (ວຽກດ່ວນ + 10,000 ກີບ)
         </div>
         
         <div class="step-item"><div class="step-num">1</div> ເລືອກແບບ ຫຼື ບັອກທີ່ຕ້ອງການ</div>
         <div class="step-item"><div class="step-num">2</div> ຊຳລະເງິນຕາມລາຄາທີ່ແຈ້ງ</div>
         <div class="step-item"><div class="step-num">3</div> ແຈ້ງຂໍ້ມູນລາຍລະອຽດໃນຟອມ</div>
-        <div class="step-item"><div class="step-num">4</div> ລໍຖ້າກວດສອບ ແລະ ຮັບງານ</div>
+        <div class="step-item"><div class="step-num">4</div> ລໍຖ້າກວດສອບ ແລະ ຮັບວຽກ</div>
 
         <a href="#" class="btn-main" style="margin-top:20px; background: var(--main-purple); color:var(--dark-text); box-shadow: none;">⭐️ ເບິ່ງຕົວຢ່າງກາຕູນ ຄລິກ</a>
     </div>
@@ -203,16 +215,16 @@ border: 1px solid var(--accent-pink);
         <h2 style="margin-bottom: 20px;">📂 ໝວດໝູ່ຜົນງານ (Ads Style)</h2>
         
         <div class="price-row">
-            <span>ແນວເກມ ແລະ Ads</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+            <span>ແນວເກມ ແລະ Ads</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
         </div>
         <div class="price-row ads-special">
-            <span style="font-weight: 500;">ແນວເກມກຶ່ງAds</span><span class="price-tag">ເບິ່ງງານ ✧</span>
+            <span style="font-weight: 500;">ແນວເກມກຶ່ງAds</span><span class="price-tag">ເບິ່ງວຽກ ✧</span>
         </div>
         <div class="price-row">
-            <span>ແນວລຽບງ່າຍ + ເກມ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+            <span>ແນວລຽບງ່າຍ + ເກມ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
         </div>
         <div class="price-row">
-            <span>ໂປຣໄຟລ໌ (Profile)</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+            <span>ໂປຣໄຟລ໌ (Profile)</span><span class="price-tag">ເບິ່ງວຽก ✨</span>
         </div>
     </div>
 
@@ -222,7 +234,7 @@ border: 1px solid var(--accent-pink);
             <span>⚡ ໄວສຸດ:</span><b>5 ຊົ່ວໂມງ</b>
         </div>
         <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
-            <span>✅ ປົກກະຕิ:</span><b>12 - 24 ຊົ່ວໂມງ</b>
+            <span>✅ ປົກກະຕິ:</span><b>12 - 24 ຊົ່ວໂມງ</b>
         </div>
         <div style="display: flex; justify-content: space-between; padding: 10px 0;">
             <span>💤 ຊ້າສຸດ:</span><b>4 - 7 ມື້</b>
@@ -239,4 +251,3 @@ border: 1px solid var(--accent-pink);
 </div>
 </body>
 </html>
-

@@ -9,22 +9,24 @@
 
 <style>
 :root{
---bg: #F8F5FF; 
---main: #D6BCFA; 
---accent: #E9D8FD; 
---dark: #553C9A; 
---white: #FFFFFF;
---glow: rgba(214, 188, 250, 0.6);
---status-color: #9F7AEA; 
+/* สัดส่วนสีตามสั่ง: ม่วง 70% | ชมพู 20% | ขาว-เหลือง 10% */
+--bg-purple: #F3E5F5;    /* ม่วงพาสเทลหลัก */
+--main-purple: #D1B3FA;  /* ม่วงเข้มขึ้นเล็กน้อย */
+--soft-pink: #FCE4EC;    /* ชมพูอ่อน */
+--accent-pink: #F06292;  /* ชมพูเน้น */
+--white: #FFFFFF;        /* ขาว */
+--soft-yellow: #FFF9C4;  /* เหลืองอ่อน */
+--dark-text: #4A148C;    /* ตัวอักษรม่วงเข้ม */
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Mitr',sans-serif;}
 
 body{
-background:var(--bg);
+background: var(--bg-purple); /* ม่วง 70% */
 display:flex;
 justify-content:center;
-background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48ZyBmaWxsPSIjRDZCQ0ZBIiBmaWxsLW9wYWNpdHk9IjAuMTUiPjxjaXJjbGUgY3g9IjMiIGN5PSIzIiByPSIxLjUiLz48L2c+PC9zdmc+');
+background-image: radial-gradient(var(--main-purple) 0.5px, transparent 0.5px);
+background-size: 20px 20px;
 }
 
 .container{
@@ -34,175 +36,96 @@ padding:20px 15px 40px;
 }
 
 .section{
-background:var(--white);
+background: var(--white); /* ขาว 10% */
 border-radius:30px; 
 padding:30px 25px;
 margin-bottom:25px;
-box-shadow:0 12px 24px rgba(85, 60, 154, 0.06); 
-border: 2px solid var(--accent); 
+box-shadow: 0 10px 20px rgba(74, 20, 140, 0.05);
+border: 2px solid var(--soft-pink);
 position: relative;
-transition: all 0.3s ease;
 }
 
-.section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 18px 35px rgba(85, 60, 154, 0.12);
+/* ส่วนกฎของร้าน - ชมพู 20% */
+.rule-box {
+    background: var(--soft-pink);
+    border-radius: 25px;
+    padding: 20px;
+    border: 2px dashed var(--accent-pink);
+    color: var(--dark-text);
 }
 
-h1,h2,h3{color:var(--dark); font-weight: 500;}
-.center{text-align:center;}
+h1, h2 { color: var(--dark-text); font-weight: 500; }
 
 .logo{
-width:165px;height:165px;
+width:160px; height:160px;
 border-radius:50%;
 overflow:hidden;
-margin:0 auto 25px;
-border: 6px solid var(--white);
-box-shadow:0 10px 35px var(--glow);
-background: var(--white);
+margin:0 auto 20px;
+border: 5px solid var(--white);
+box-shadow: 0 8px 25px rgba(209, 179, 250, 0.8);
 }
-
-.logo img{width:100%;height:100%;object-fit:cover;}
-
-.badges{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:12px;
-margin-bottom:25px;
-}
+.logo img{ width:100%; height:100%; object-fit:cover; }
 
 .badge{
-background: var(--white);
-padding:9px 20px;
-border-radius:25px;
-border: 2px solid var(--main);
+background: var(--main-purple);
+padding:8px 18px;
+border-radius:20px;
 font-size:14px;
-color:var(--dark);
-box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-}
-
-.btn{
-display:block;
-text-align:center;
-padding:16px;
-border-radius:35px;
-text-decoration:none;
-margin-top:20px;
-font-weight:500;
-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.btn-outline{
-background:var(--white);
-border:2px dashed var(--main);
-color:var(--dark);
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 12px;
+color: var(--dark-text);
+font-weight: 500;
 }
 
 .btn-main{
-background: linear-gradient(135deg, var(--main), var(--status-color));
-color:var(--white);
-box-shadow: 0 8px 25px var(--glow);
-border: none;
-}
-
-.btn-main:hover{
-    transform: scale(1.04);
-    box-shadow: 0 10px 30px var(--glow);
-}
-
-@keyframes blink {
-    0% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.8); }
-    100% { opacity: 1; transform: scale(1); }
-}
-
-.status-dot {
-    width: 12px;
-    height: 12px;
-    background-color: var(--dark);
-    border-radius: 50%;
-    animation: blink 2.2s infinite ease-in-out;
-    box-shadow: 0 0 15px var(--main);
-}
-
-.step{
-display:flex;
-align-items:center;
-gap:15px;
-margin-bottom:15px;
-}
-
-.step-num{
-background: var(--main);
-color: var(--dark);
-width:35px;height:35px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:16px;
-font-weight: bold;
-box-shadow: 0 4px 10px var(--glow);
+background: linear-gradient(135deg, var(--main-purple), var(--accent-pink));
+color: var(--white);
+padding: 16px;
+border-radius: 35px;
+display: block;
+text-align: center;
+text-decoration: none;
+font-weight: 500;
+box-shadow: 0 5px 15px rgba(240, 98, 146, 0.3);
+transition: 0.3s;
 }
 
 .price-row{
 display:flex;
 justify-content:space-between;
 align-items: center;
-margin-bottom:12px;
-background:#FDFBFF;
-padding:16px 22px;
-border-radius:22px;
+margin-bottom:10px;
+background: var(--bg-purple);
+padding:14px 20px;
+border-radius:20px;
 cursor: pointer;
-transition: 0.3s;
-border: 1.5px solid transparent;
+transition: 0.2s;
 }
-
-.price-row:hover{
-    background: var(--accent);
-    border-color: var(--main);
-    transform: translateX(8px);
-}
+.price-row:hover { background: var(--soft-pink); transform: scale(1.02); }
 
 .price-tag{
-background:var(--white);
-color:var(--dark);
-padding:6px 16px;
-border-radius:20px;
-font-size:14px;
-border: 1.5px solid var(--main);
+background: var(--white);
+padding:5px 12px;
+border-radius:15px;
+font-size:13px;
+color: var(--accent-pink);
+border: 1px solid var(--accent-pink);
 }
 
-.time-box{
-    background: #FFF;
-    border: 2px solid var(--main);
-    padding: 22px;
-    border-radius: 28px;
-    margin-top: 15px;
+.step-card {
+    background: var(--soft-yellow); /* เหลือง 10% */
+    padding: 15px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #856404;
 }
 
-.time-item{
+.time-item {
     display: flex;
     justify-content: space-between;
-    font-size: 15px;
-    margin-bottom: 10px;
-    color: var(--dark);
-}
-
-.small{font-size:13px; color: var(--dark); opacity:.6; margin-top:28px; text-align: center;}
-
-.section::after {
-    content: '💜';
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 14px;
-    opacity: 0.35;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--soft-pink);
 }
 </style>
 </head>
@@ -210,97 +133,82 @@ border: 1.5px solid var(--main);
 <body>
 <div class="container">
 
-<div class="section center" style="border:none;box-shadow:none;background:transparent;">
-<div class="logo">
-<img src="242_20260207172619.jpeg" alt="Kataiy Logo">
-</div>
-<h1 style="font-size: 2.3rem; letter-spacing: 1px;">Kataiy Store</h1>
-<p style="color:var(--dark); margin:12px 0 28px; font-weight: 400;">
-ສະບາຍດີ ຍິນດີຕ້ອນຮັບເຂົ້າສູ່ຮ້ານ Kataiy 🎀
-</p>
-
-<div class="badges">
-<div class="badge">🎨 ຮັບເຮັດປ້າຍ</div>
-<div class="badge">🎮 ຮັບເຕີມເກມ</div>
-</div>
-
-<a href="https://www.facebook.com/share/14WkotdfjdV/" class="btn btn-outline">
-    <div class="status-dot"></div> 
-    ພ້ອມຮັບອໍເດີ້ ທັກສອບຖາມໄດ້ເລີຍ ✨
-</a>
-</div>
-
-<div class="section">
-    <div style="font-size:15px; color:var(--dark); background:var(--accent); padding:22px; border-radius:24px; border: 2px dashed var(--dark);">
-        <h2 style="text-align: center; font-size: 1.5rem; margin-bottom: 18px;">📍 ກົດຂອງຮ້ານ 📍</h2>
-        <p style="margin-bottom: 10px;">• ທາງຮ້ານຈະບໍ່ຮັບເຮັດງານຕາມຕົວຢ່າງຮ້ານອື່ນ</p>
-        <p>• ຫ້າມເອົາງານຂອງທາງຮ້ານໄປເປັນຕົວຢ່າງໃຫ້ຮ້ານອື່ນເຮັດ</p>
+    <div class="center" style="margin-bottom: 30px;">
+        <div class="logo">
+            <img src="242_20260207172619.jpeg" alt="Kataiy Logo">
+        </div>
+        <h1>Kataiy Store</h1>
+        <p style="color: var(--dark-text); margin: 8px 0 15px;">ສະບາຍດີ ຍິນດີຕ້ອນຮັບເຂົ້າສູ່ຮ້ານ Kataiy 🎀</p>
+        <div style="display:flex; justify-content:center; gap:10px;">
+            <div class="badge">🎨 ຮັບອອກແບບປ້າຍ</div>
+            <div class="badge">🎮 ຮັບເຕີມເກມ</div>
+        </div>
     </div>
-</div>
 
-<div class="section">
-<h2 style="margin-bottom: 22px;">📝 ຂັ້ນຕອນການສັ່ງ</h2>
-<div style="background: #FFF9C4; padding: 16px; border-radius: 18px; margin-bottom: 22px; font-size: 15px; color: #854d0e; border: 1.5px solid #fde68a;">
-    <strong>📋 ເງື່ອນໄຂ:</strong> ໂອນ = ໄດ້ຄິວ (ງານເລັ່ງ + 10,000)
-</div>
+    <div class="section">
+        <div class="rule-box">
+            <h2 style="text-align: center; margin-bottom: 15px; font-size: 1.3rem;">📍 ກົດລະບຽບຂອງຮ້ານ 📍</h2>
+            <p style="margin-bottom: 8px;">• ບໍ່ຮັບກັອບປີ້ຜົນງານຈາກຮ້านອື່ນທຸກກໍລະນີ</p>
+            <p>• ຫ້າມນຳຜົນງານຂອງຮ້ານໄປເປັນແບບໃຫ້ຮ້ານອື່ນເຮັດ</p>
+        </div>
+    </div>
 
-<div class="step"><div class="step-num">1</div><div>ເລືອກ box ຫຼື ຕົວຢ່າງຂອງທາງຮ້ານ</div></div>
-<div class="step"><div class="step-num">2</div><div>ຊຳລະເງິນຄ່າປ້າຍ</div></div>
-<div class="step"><div class="step-num">3</div><div>ກອກຟອມຂໍ້ມູນທີ່ທາງຮ້ານສົ່ງໃຫ້</div></div>
-<div class="step"><div class="step-num">4</div><div>ຖ້າຮັບງານ</div></div>
+    <div class="section">
+        <h2 style="margin-bottom: 20px;">📝 ຂັ້ນຕອນການສັ່ງຊື້</h2>
+        <div class="step-card">
+            <strong>📋 ເງື່ອນໄຂ:</strong> ໂອນເງິນ = ຈອງຄິວ (ງານດ່ວນ + 10,000 ກີບ)
+        </div>
+        <div style="margin-left: 10px;">
+            <p style="margin-bottom:10px;">1. ເລືອກແບບ ຫຼື ບັອກທີ່ຕ້ອງການ</p>
+            <p style="margin-bottom:10px;">2. ຊຳລະເງິນຕາມລາຄາທີ່ແຈ້ງ</p>
+            <p style="margin-bottom:10px;">3. ແຈ້ງຂໍ້ມູນລາຍລະອຽດໃນຟອມ</p>
+            <p>4. ລໍຖ້າກວດສອບ ແລະ ຮັບງານ</p>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1v07-1ayQBM6YzG1lwGnRHSNcgFLBE9S1" class="btn-main" style="margin-top:20px; background: var(--main-purple); color:var(--dark-text);">⭐️ ເບິ່ງຕົວຢ່າງກາຕູນ ຄລິກ</a>
+    </div>
 
-<a href="https://drive.google.com/drive/folders/1v07-1ayQBM6YzG1lwGnRHSNcgFLBE9S1" class="btn btn-main">⭐️ ຕົວຢ່າງຕູນ + ຂອງຕຕ ຄລິກ</a>
-</div>
+    <div class="section">
+        <h2 style="margin-bottom: 20px;">📂 ໝວດໝູ່ຜົນງານ</h2>
+        
+        <div class="price-row" onclick="location.href='https://drive.google.com/drive/folders/1WjCwrkky7qDlvRbUPizUoaJ118I3OUAs'">
+            <span>ແນວເກມ ແລະ Ads</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+        </div>
+        <div class="price-row" onclick="location.href='https://drive.google.com/drive/folders/1WynLKq_16qWhh6Rz14G_ANUclLUyO1lB'">
+            <span>ແນວລຽບງ່າຍ + ເກມ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+        </div>
+        <div class="price-row" onclick="location.href='https://drive.google.com/drive/folders/1vhtzkVD4nyX70as81QNOtxgx0eid1oED'">
+            <span>ແນວໂທນມືດ (Dark)</span><span class="price-tag">ເเบິ່ງງານ ✨</span>
+        </div>
+        <div class="price-row" onclick="location.href='https://drive.google.com/drive/folders/13SV21IB_4mmnjLwZ28ySzhraSOs6TOFQ'">
+            <span>ແนວເຮດດີສ (Header)</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+        </div>
+        <div class="price-row" onclick="location.href='https://drive.google.com/drive/folders/1iXWdlOwl15NhRBaQHCxdWvWYg_oH7t_N'">
+            <span>ແນວນ່າຮັກ + ລຽບງ່າຍ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+        </div>
+        <div class="price-row" onclick="location.href='https://drive.google.com/drive/folders/1LLL7vUBMtapUIxY_4NVEW_bM7_qQJPHq'">
+            <span>ໂປຣໄຟລ໌ (Profile)</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+        </div>
+        <div class="price-row" onclick="location.href='https://drive.google.com/drive/folders/1H7NV_ti-AusWZsEUT0nGu2wLhbvEP4sj'">
+            <span>ຫົວປ້າຍ ແລະ ລາຍນ້ຳ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+        </div>
+        <div class="price-row" onclick="location.href='https://drive.google.com/drive/folders/1lgXrKVEoEyFgByepZo3TNtaGm7GYd1zF'">
+            <span>ຮວມປ້າຍປ່ອຍ F</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+        </div>
+    </div>
 
-<div class="section">
-<h2 style="margin-bottom: 22px;">📂 ຜົນງານຂອງທາງຮ້ານ</h2>
-
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1WjCwrkky7qDlvRbUPizUoaJ118I3OUAs'">
-    <span>ແນວເກມກຶ່ງAds</span><span class="price-tag">ເບິ່ງງານ ✨</span>
-</div>
-
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1WynLKq_16qWhh6Rz14G_ANUclLUyO1lB'">
-    <span>ແນວລຽບໆ+ເກມ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
-</div>
-
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1vhtzkVD4nyX70as81QNOtxgx0eid1oED'">
-    <span>ແນວມືດ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
-</div>
-
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/13SV21IB_4mmnjLwZ28ySzhraSOs6TOFQ'">
-    <span>ແນວເຮດ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
-</div>
-
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1iXWdlOwl15NhRBaQHCxdWvWYg_oH7t_N'">
-    <span>ແນວຫນ້າຮັກ+ລຽບໆ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
-</div>
-
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1LLL7vUBMtapUIxY_4NVEW_bM7_qQJPHq'">
-    <span>ໂປຣໄຟລ໌</span><span class="price-tag">ເບິ່ງງານ ✨</span>
-</div>
-
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1H7NV_ti-AusWZsEUT0nGu2wLhbvEP4sj'">
-    <span>ຫົວປ້າຍ-ລາຍນ້ຳ</span><span class="price-tag">ເບิ่งງານ ✨</span>
-</div>
-
-<div class="price-row" onclick="window.location.href='https://drive.google.com/drive/folders/1lgXrKVEoEyFgByepZo3TNtaGm7GYd1zF'">
-    <span>ຮວມປ້າຍປ່ອຍ F</span><span class="price-tag">ເບິ່ງງານ ✨</span>
-</div>
-</div>
-
-<div class="section">
-    <h2 style="margin-bottom: 22px;">⏳ ລະຍະເວລາການເຮັດງານ</h2>
-    <div class="time-box">
+    <div class="section">
+        <h2 style="margin-bottom: 15px;">⏳ ໄລຍະເວລາລໍຖ້າງານ</h2>
         <div class="time-item"><span>⚡️ ໄວສຸດ:</span> <strong>5 ຊົ່ວໂມງ</strong></div>
         <div class="time-item"><span>✅ ປົກກະຕິ:</span> <strong>12 - 24 ຊົ່ວໂມງ</strong></div>
-        <div class="time-item"><span>💤 ຊ້າສຸດ:</span> <strong>4 - 7 ມື້</strong></div>
+        <div class="time-item" style="border:none;"><span>💤 ຊ້າສຸດ:</span> <strong>4 - 7 ມື້</strong></div>
     </div>
-</div>
 
-<div class="footer center">
-<a href="https://www.facebook.com/share/14WkotdfjdV/" class="btn btn-main" style="width: 100%;">ຕິດຕໍ່ສອບຖາມ Facebook 🎀</a>
-<p class="small">© 2026 Kataiy Store | Nammork Ssv</p>
-</div>
+    <div class="center">
+        <a href="https://www.facebook.com/share/14WkotdfjdV/" class="btn-main">ຕິດຕໍ່ສອບຖາມຜ່ານ Facebook 🎀</a>
+        <p style="font-size: 12px; color: var(--dark-text); margin-top: 20px; opacity: 0.6;">
+            © 2026 Kataiy Store | Nammork Ssv
+        </p>
+    </div>
 
 </div>
 </body>

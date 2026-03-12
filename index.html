@@ -29,7 +29,6 @@ body {
     min-height: 100vh;
 }
 
-/* --- ส่วนของพื้นหลังอิโมจิแบบเต็มๆ --- */
 .bg-emojis {
     position: fixed;
     top: 0;
@@ -53,8 +52,6 @@ body {
     to { transform: translateY(-20px) rotate(10deg); }
 }
 
-/* ---------------------------------- */
-
 .container{
     max-width:500px;
     width:100%;
@@ -71,8 +68,6 @@ body {
     padding:30px 25px;
     margin-bottom:25px;
     box-shadow: 0 10px 20px rgba(74, 20, 140, 0.05);
-    border: none;
-    position: relative;
 }
 
 .white-box-title {
@@ -81,7 +76,6 @@ body {
     padding: 12px 35px;
     display: inline-block;
     margin: 15px auto;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
 }
 
 .logo-wrapper {
@@ -133,7 +127,6 @@ body {
     border-radius: 50%;
     display: inline-block;
     margin-right: 8px;
-    box-shadow: 0 0 8px var(--accent-pink);
     animation: blink 1.2s infinite;
 }
 
@@ -159,28 +152,34 @@ body {
     display:flex;
     justify-content:space-between;
     align-items: center;
-    margin-bottom:10px;
+    margin-bottom:8px;
     background: rgba(255, 255, 255, 0.5);
-    padding:14px 20px;
-    border-radius:20px;
+    padding:12px 18px;
+    border-radius:18px;
     text-decoration: none;
     color: var(--dark-text);
+    font-size: 14px;
+    transition: 0.3s;
 }
+.price-row:hover { background: var(--white); }
 
 .price-tag {
     background: var(--white);
-    padding: 5px 15px;
+    padding: 4px 12px;
     border-radius: 20px;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--accent-pink);
     border: 1px solid var(--accent-pink);
 }
 
-.time-box {
+.info-box {
     background: var(--white);
     padding: 15px;
     border-radius: 20px;
     border: 2px dashed var(--main-purple);
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.6;
 }
 </style>
 </head>
@@ -194,10 +193,6 @@ body {
     <span class="bg-emoji" style="top:45%; left:90%;">🎀</span>
     <span class="bg-emoji" style="top:60%; left:15%;">🍬</span>
     <span class="bg-emoji" style="top:75%; left:80%;">💕</span>
-    <span class="bg-emoji" style="top:85%; left:10%;">🎀</span>
-    <span class="bg-emoji" style="top:10%; left:50%;">🪻</span>
-    <span class="bg-emoji" style="top:50%; left:45%;">💕</span>
-    <span class="bg-emoji" style="top:90%; left:60%;">🍬</span>
 </div>
 
 <div class="container">
@@ -233,26 +228,49 @@ body {
     </div>
 
     <div class="section">
-        <h2 class="center" style="margin-bottom: 15px; color: var(--dark-text);">📍 ກົດລະບຽບຂອງຮ້ານ 📍</h2>
-        <p>• ບໍ່ຮັບກັອບປີ້ຜົນງານຈາກຮ້ານອື່ນທຸກກໍລະນີ</p>
-        <p>• ຫ້າມນຳຜົນງານຂອງຮ້ານໄປເປັນແບບໃຫ້ຮ້ານອື່ນເຮັດ</p>
-    </div>
+        <h2 style="margin-bottom: 20px; color: var(--dark-text); text-align: center;">🎨 ງານທີ່ຮັບເຮັດ</h2>
+        
+        <a href="https://drive.google.com/drive/folders/1WjCwrkky7qDlvRbUPizUoaJ118I3OUAs" target="_blank" class="price-row"><span>ແນວເກມກຶ່ງ Ads</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+        
+        <a href="https://drive.google.com/drive/folders/1WynLKq_16qWhh6Rz14G_ANUclLUyO1lB" target="_blank" class="price-row"><span>ແນວລຽບໆ + ເກມ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+        
+        <a href="https://drive.google.com/drive/folders/1vhtzkVD4nyX70as81QNOtxgx0eid1oED" target="_blank" class="price-row"><span>ແນວມືດ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+        
+        <a href="https://drive.google.com/drive/folders/13SV21IB_4mmnjLwZ28ySzhraSOs6TOFQ" target="_blank" class="price-row"><span>ແນວເຮດ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+        
+        <a href="https://drive.google.com/drive/folders/1iXWdlOwl15NhRBaQHCxdWvWYg_oH7t_N" target="_blank" class="price-row"><span>ແນວນ່າຮັກ + ທຳມະດາ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+        
+        <a href="https://drive.google.com/drive/folders/1LLL7vUBMtapUIxY_4NVEW_bM7_qQJPHq" target="_blank" class="price-row"><span>ໂປຣໄຟລ໌ (Profile)</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+        
+        <a href="https://drive.google.com/drive/folders/1H7NV_ti-AusWZsEUT0nGu2wLhbvEP4sj" target="_blank" class="price-row"><span>ຫົວປ້າຍ - ລາຍນ້ຳ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+        
+        <a href="https://drive.google.com/drive/folders/1lgXrKVEoEyFgByepZo3TNtaGm7GYd1zF" target="_blank" class="price-row"><span>ລວມປ້າຍປ່ອຍ F</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
 
-    <div class="section">
-        <h2 style="margin-bottom: 20px; color: var(--dark-text);">📂 ໝວດໝູ່ຜົນງານ (Drive)</h2>
-        <a href="#" class="price-row"><span>ແນວເກມເຄິ່ງ Ads</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
-        <a href="#" class="price-row"><span>ແນວລຽບໆ + ເກມ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
-        <a href="#" class="price-row"><span>ແນວນ່າຮັກ + ທຳມະດາ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
-        <a href="#" class="price-row"><span>ໂປຣໄຟລ໌ (Profile)</span><span class="price-tag">ເບิ่งວຽກ ✨</span></a>
-    </div>
-
-    <div class="section">
-        <h2 style="margin-bottom: 20px; color: var(--dark-text);">⏰ ໄລຍະເວລາການເຮັດວຽກ</h2>
-        <div class="time-box">
-            <p>🚀 <strong>5 ຊົ່ວໂມງ:</strong> (ໄວສຸດ)</p>
-            <p>🕒 <strong>12 - 24 ຊົ່ວໂມງ:</strong> (ປົກກະຕິ)</p>
-            <p>🐢 <strong>4 - 7 ມື້:</strong> (ຊ້າສຸດ)</p>
+        <div style="margin-top: 15px;">
+            <a href="https://drive.google.com/drive/folders/1v07-1ayQBM6YzG1lwGnRHSNcgFLBE9S1" target="_blank" class="btn-main" style="font-size: 14px; padding: 12px;">⭐️ ຕົວຢ່າງຕູນ + ຂອງຕົບແຕ່ງ</a>
         </div>
+    </div>
+
+    <div class="section">
+        <h2 style="color: var(--dark-text); font-size: 1.2rem;">📋 ເງື່ອນໄຂ ແລະ ຂັ້ນຕອນ</h2>
+        <div class="info-box">
+            <strong>💰 ເງື່ອນໄຂ:</strong><br>
+            • ໂອນ = ໄດ້ຄິວ <br>
+            • ງານເລັ່ງ + 10,000 ກີບ
+        </div>
+        <div class="info-box">
+            <strong>📝 ຂັ້ນຕອນການສັ່ງ:</strong><br>
+            1. ເລືອກ Box ຫຼື ຕົວຢ່າງຂອງທາງຮ້ານ<br>
+            2. ຊຳລະເງິນຄ່າປ້າຍ<br>
+            3. ກອກຟອມຂໍ້ມູນທີ່ທາງຮ້ານສົ່ງໃຫ້<br>
+            4. ຖ້າຮັບງານສວຍໆໄດ້ເລີຍ!
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="center" style="margin-bottom: 15px; color: var(--dark-text);">📍 ກົດລະບຽບຂອງຮ້ານ 📍</h2>
+        <p style="font-size: 14px; margin-bottom: 8px;">• ທາງຮ້ານຈະບໍ່ຮັບເຮັດງານຕາມຕົວຢ່າງຮ້ານອື່ນ</p>
+        <p style="font-size: 14px;">• ຫ້າມເອົາງານຂອງທາງຮ້ານໄປເປັນຕົວຢ່າງໃຫ້ຮ້ານອື່ນເຮັດ</p>
     </div>
 
     <div class="center">

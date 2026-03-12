@@ -4,16 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kataiy Store - Official</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
-    --bg-purple: #E1D5F5;    
-    --main-purple: #D1B3FA;  
-    --soft-pink: #FCE4EC;    
-    --accent-pink: #F06292;  
-    --white: #FFFFFF;        
-    --dark-text: #4A148C;    
+--bg-purple: #E1D5F5;    
+--main-purple: #D1B3FA;  
+--soft-pink: #FCE4EC;    
+--accent-pink: #F06292;  
+--white: #FFFFFF;        
+--soft-yellow: #FFF9C4;  
+--dark-text: #4A148C;    
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Mitr',sans-serif;}
@@ -22,128 +24,281 @@ body {
     background: var(--bg-purple); 
     display: flex;
     justify-content: center;
+    position: relative;
+    overflow-x: hidden;
     min-height: 100vh;
+}
+
+.bg-emojis {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bg-emoji {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.6;
+    animation: floating-bg 6s ease-in-out infinite alternate;
+}
+
+@keyframes floating-bg {
+    from { transform: translateY(0) rotate(0deg); }
+    to { transform: translateY(-20px) rotate(10deg); }
 }
 
 .container{
     max-width:500px;
     width:100%;
     padding:20px 15px 40px;
+    position: relative;
+    z-index: 1;
 }
 
 .center { text-align: center; }
 
 .section{
-    background: rgba(255, 255, 255, 0.9); 
+    background: rgba(255, 255, 255, 0.85); 
     border-radius:30px; 
-    padding:25px;
-    margin-bottom:20px;
+    padding:30px 25px;
+    margin-bottom:25px;
     box-shadow: 0 10px 20px rgba(74, 20, 140, 0.05);
 }
 
 .white-box-title {
-    background: var(--white); 
+    background: rgba(255, 255, 255, 0.6); 
     border-radius: 20px;
-    padding: 10px 40px;
+    padding: 12px 35px;
     display: inline-block;
     margin: 15px auto;
 }
 
-.badge{
-    background: var(--main-purple); 
-    padding: 8px 15px;
-    border-radius:20px;
-    font-size:14px;
-    color: var(--dark-text);
+.logo-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.status-bar {
-    margin-top: 15px;
-    padding: 10px;
-    border: 2px dashed var(--main-purple);
-    border-radius: 50px;
-    background: var(--white);
-    display: block;
+.logo{
+    width:160px; height:160px;
+    border-radius:50%;
+    overflow:hidden;
+    border: 5px solid var(--white);
+    box-shadow: 0 8px 25px rgba(209, 179, 250, 0.8);
+    position: relative;
+    z-index: 2;
+}
+.logo img{ width:100%; height:100%; object-fit:cover; }
+
+.emoji-decor {
+    position: absolute;
+    font-size: 28px;
+    z-index: 3;
+    animation: floating-emoji 3s ease-in-out infinite;
+}
+
+@keyframes floating-emoji {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(10deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.badge{
+    background: var(--main-purple); 
+    padding: 10px 20px;
+    border-radius:25px;
+    font-size:14px;
     color: var(--dark-text);
     font-weight: 500;
+}
+
+.dot-status {
+    height: 10px; width: 10px;
+    background-color: var(--accent-pink);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.btn-main{
+    background: linear-gradient(135deg, var(--main-purple), var(--accent-pink));
+    color: var(--white);
+    padding: 16px;
+    border-radius: 35px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(240, 98, 146, 0.3);
 }
 
 .price-row{
     display:flex;
     justify-content:space-between;
     align-items: center;
-    margin-bottom:10px;
-    background: var(--white);
+    margin-bottom:8px;
+    background: rgba(255, 255, 255, 0.5);
     padding:12px 18px;
-    border-radius:15px;
+    border-radius:18px;
     text-decoration: none;
     color: var(--dark-text);
     font-size: 14px;
     transition: 0.3s;
 }
+.price-row:hover { background: var(--white); }
 
 .price-tag {
-    background: var(--soft-pink);
+    background: var(--white);
     padding: 4px 12px;
-    border-radius: 15px;
-    color: var(--accent-pink);
+    border-radius: 20px;
     font-size: 12px;
+    color: var(--accent-pink);
+    border: 1px solid var(--accent-pink);
 }
 
-.btn-main{
-    background: linear-gradient(135deg, var(--main-purple), var(--accent-pink));
-    color: var(--white);
+.info-box {
+    background: var(--white);
     padding: 15px;
-    border-radius: 30px;
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 500;
+    border-radius: 20px;
+    border: 2px dashed var(--main-purple);
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.6;
 }
 </style>
 </head>
 
 <body>
+
+<div class="bg-emojis">
+    <span class="bg-emoji" style="top:5%; left:10%;">💕</span>
+    <span class="bg-emoji" style="top:15%; left:85%;">🍬</span>
+    <span class="bg-emoji" style="top:30%; left:5%;">🪻</span>
+    <span class="bg-emoji" style="top:45%; left:90%;">🎀</span>
+    <span class="bg-emoji" style="top:60%; left:15%;">🍬</span>
+    <span class="bg-emoji" style="top:75%; left:80%;">💕</span>
+</div>
+
 <div class="container">
-    <div class="center">
-        <div class="white-box-title">
-            <h1 style="color: var(--dark-text);">Kataiy Store</h1>
+
+    <div class="center" style="margin-bottom: 30px;">
+        <div class="logo-wrapper">
+            <span class="emoji-decor" style="top: 0; left: -10px; animation-delay: 0s;">🎀</span>
+            <span class="emoji-decor" style="top: -20px; right: 0px; animation-delay: 0.5s;">🍬</span>
+            <span class="emoji-decor" style="bottom: 15px; left: -15px; animation-delay: 1s;">🪻</span>
+            <span class="emoji-decor" style="bottom: -10px; right: -5px; animation-delay: 1.5s;">💕</span>
+            
+            <div class="logo">
+                <img src="242_20260207172619.jpeg" alt="Kataiy Logo">
+            </div>
         </div>
-        <p style="color: var(--dark-text); margin-bottom: 15px;">ສະບາຍດີ ຍິນດີຕ້ອນຮັບເຂົ້າສູ່ຮ້ານ Kataiy 🎀</p>
+        
+        <div class="white-box-title">
+            <h1 style="color: #4A148C; font-size: 2.1rem;">Kataiy Store</h1>
+        </div>
+        
+        <p style="color: var(--dark-text); margin: 5px 0 15px;">ສະບາຍດີ ຍິນດີຕ້ອນຮັບເຂົ້າສູ່ຮ້ານ Kataiy 🎀</p>
         
         <div style="display:flex; justify-content:center; gap:10px;">
             <div class="badge">🎨 ຮັບເຮັດປ້າຍ</div>
             <div class="badge">🎮 ຮັບເຕີມເກມ</div>
         </div>
         
-        <div class="status-bar">
-            ✨ ພ້ອມຮັບອໍເດີ້ ທັກສອບຖາມໄດ້ເລີຍເດີ້ ✨
+        <div style="margin-top: 20px; padding: 12px; border: 2px dashed rgba(209, 179, 250, 0.6); border-radius: 50px; background: rgba(255, 255, 255, 0.8); display: inline-block; width: 100%;">
+            <span style="color: var(--dark-text); font-weight: 500;">
+                <span class="dot-status"></span> ພ້ອມຮັບອໍເດີ້ ທັກສອບຖາມໄດ້ເລີยນ້າ ✨
+            </span>
         </div>
     </div>
 
-    <div class="section" style="margin-top: 25px;">
+    <div class="section">
         <h2 style="margin-bottom: 20px; color: var(--dark-text); text-align: center;">🎨 ງານທີ່ຮັບເຮັດ</h2>
         
-        <a href="#" class="price-row"><span>ແນວເກມກຶ່ງ Ads</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
-        <a href="#" class="price-row"><span>ແນວລຽບໆ + ເກມ</span><span class="price-tag">ເบິ່ງວຽກ ✨</span></a>
-        <a href="#" class="price-row"><span>ແນວມືດ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
-        <a href="#" class="price-row"><span>ແນວເຮດ (Head)</span><span class="price-tag">ເບິ່ງວຽก ✨</span></a>
-        <a href="#" class="price-row"><span>ແນວນ່າຮັກ + ທຳມະດາ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+        <a href="https://drive.google.com/drive/folders/1WjCwrkky7qDlvRbUPizUoaJ118I3OUAs" target="_blank" class="price-row"><span>ແນວເກມກຶ່ງ Ads</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+        
+        <a href="https://drive.google.com/drive/folders/1WynLKq_16qWhh6Rz14G_ANUclLUyO1lB" target="_blank" class="price-row"><span>ແນວລຽບໆ + ເກມ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+        
+        <a href="https://drive.google.com/drive/folders/1vhtzkVD4nyX70as81QNOtxgx0eid1oED" target="_blank" class="price-row"><span>ແນວມືດ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+        
+        <a href="https://drive.google.com/drive/folders/13SV21IB_4mmnjLwZ28ySzhraSOs6TOFQ" target="_blank" class="price-row"><span>ແນວເຮດ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+        
+        <a href="https://drive.google.com/drive/folders/1iXWdlOwl15NhRBaQHCxdWvWYg_oH7t_N" target="_blank" class="price-row"><span>ແນວນ່າຮັກ + ທຳມະດາ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+        
+        <a href="https://drive.google.com/drive/folders/1LLL7vUBMtapUIxY_4NVEW_bM7_qQJPHq" target="_blank" class="price-row"><span>ໂປຣໄຟລ໌ (Profile)</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+        
+        <a href="https://drive.google.com/drive/folders/1H7NV_ti-AusWZsEUT0nGu2wLhbvEP4sj" target="_blank" class="price-row"><span>ຫົວປ້າຍ - ລາຍນ້ຳ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+        
+        <a href="https://drive.google.com/drive/folders/1lgXrKVEoEyFgByepZo3TNtaGm7GYd1zF" target="_blank" class="price-row"><span>ລວມປ້າຍປ່ອຍ F</span><span class="price-tag">ເບິ່ງວຽກ ✨</span></a>
+
+        <div style="margin-top: 15px;">
+            <a href="https://drive.google.com/drive/folders/1v07-1ayQBM6YzG1lwGnRHSNcgFLBE9S1" target="_blank" class="btn-main" style="font-size: 14px; padding: 12px;">⭐️ ຕົວຢ່າງຕູນ + ຂອງຕົບແຕ່ງ</a>
+        </div>
     </div>
 
     <div class="section">
-        <h2 style="color: var(--dark-text); font-size: 1.2rem; margin-bottom: 15px;">⏳ ໄລຍະເວລາການເຮັດວຽກ</h2>
-        <div class="price-row"><span>🚀 ໄວສຸດ (ງານເລັ່ງ)</span><span class="price-tag">5 ຊົ່ວໂມງ</span></div>
-        <div class="price-row"><span>✨ ປົກກະติ</span><span class="price-tag">12 - 24 ຊົ່ວໂມງ</span></div>
-        <div class="price-row"><span>📦 ຊ້າສຸດ (ຕາມຄິວ)</span><span class="price-tag">4 - 7 ມື້</span></div>
+        <h2 style="color: var(--dark-text); font-size: 1.2rem;">📋 ເງື່ອນໄຂ ແລະ ຂັ້ນຕອນ</h2>
+        <div class="info-box">
+            <strong>💰 ເງື່ອນໄຂ:</strong><br>
+            • ໂອນ = ໄດ້ຄິວ <br>
+            • ງານເລັ່ງ + 10,000 ກີບ
+        </div>
+        <div class="info-box">
+            <strong>📝 ຂັ້ນຕອນການສັ່ງ:</strong><br>
+            1. ເລືອກ Box ຫຼື ຕົວຢ່າງຂອງທາງຮ້ານ<br>
+            2. ຊຳລະເງິນຄ່າປ້າຍ<br>
+            3. ກອກຟອມຂໍ້ມູນທີ່ທາງຮ້ານສົ່ງໃຫ້<br>
+            4. ຖ້າຮັບງານສວຍໆໄດ້ເລີຍ!
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 style="margin-bottom: 20px; color: var(--dark-text); text-align: center;">⏳ ລະຍະເວລາການເຮັດງານ</h2>
+        
+        <div class="price-row" style="cursor: default; border-left: 5px solid #F06292;">
+            <span>🚀 ໄວສຸດ (ງານເລັ່ງ)</span>
+            <span class="price-tag">5 ຊົ່ວໂມງ</span>
+        </div>
+        
+        <div class="price-row" style="cursor: default; border-left: 5px solid var(--main-purple);">
+            <span>✨ ປົກກະຕິ</span>
+            <span class="price-tag">12 - 24 ຊົ່ວໂມง</span>
+        </div>
+        
+        <div class="price-row" style="cursor: default; border-left: 5px solid #4A148C;">
+            <span>📦 ຊ້າສຸດ (ຕາມຄິວ)</span>
+            <span class="price-tag">4 - 7 ມື້</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="center" style="margin-bottom: 15px; color: var(--dark-text);">📍 ກົດລະບຽບຂອງຮ້ານ 📍</h2>
+        <p style="font-size: 14px; margin-bottom: 8px;">• ທາງຮ້ານຈະບໍ່ຮັບເຮັດງານຕາມຕົວຢ່າງຮ້ານອື່ນ</p>
+        <p style="font-size: 14px;">• ຫ້າມເອົາງານຂອງທາງຮ້ານໄປເປັນຕົວຢ່າງໃຫ້ຮ້ານອື່ນເຮັດ</p>
     </div>
 
     <div class="center">
-        <a href="#" class="btn-main">ຕິດຕໍ່ສອບຖາມຜ່ານ Facebook 🎀</a>
-        <p style="font-size: 11px; color: var(--dark-text); margin-top: 20px; opacity: 0.6;">
+        <a href="https://www.facebook.com/share/14WkotdfjdV/" class="btn-main">ຕິດຕໍ່ສອບຖາມຜ່ານ Facebook 🎀</a>
+        <p style="font-size: 11px; color: var(--dark-text); margin-top: 20px; opacity: 0.5;">
             © 2026 Kataiy Store | Nammork Ssv
         </p>
     </div>
+
 </div>
 </body>
 </html>

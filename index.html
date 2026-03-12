@@ -46,7 +46,6 @@ border: none;
 position: relative;
 }
 
-/* ປັບກອບຊື່ຮ້ານໃຫ້ຈາງລົງຕາມຮູບ 9 */
 .white-box-title {
     background: rgba(255, 255, 255, 0.5); 
     border-radius: 20px;
@@ -57,7 +56,6 @@ position: relative;
     border: none;
 }
 
-/* ກົດລະບຽບຮ້ານ: ລົບເສັ້ນປະອອກຕາມຮູບ 7 */
 .rule-box-soft {
     background: rgba(255, 255, 255, 0.4);
     border-radius: 25px;
@@ -125,7 +123,11 @@ margin-bottom:10px;
 background: rgba(255, 255, 255, 0.4);
 padding:14px 20px;
 border-radius:20px;
+text-decoration: none;
+color: var(--dark-text);
+transition: 0.2s;
 }
+.price-row:hover { background: rgba(255, 255, 255, 0.8); }
 
 .price-tag {
     background: var(--white);
@@ -153,6 +155,13 @@ border-radius:20px;
     justify-content: center;
     font-weight: 600;
     font-size: 14px;
+}
+
+.time-box {
+    background: var(--white);
+    padding: 15px;
+    border-radius: 20px;
+    border: 2px dashed var(--main-purple);
 }
 </style>
 </head>
@@ -187,7 +196,45 @@ border-radius:20px;
         <div class="rule-box-soft">
             <h2 class="center" style="margin-bottom: 15px; font-size: 1.3rem;">📍 ກົດລະບຽບຂອງຮ້ານ 📍</h2>
             <p style="margin-bottom: 8px;">• ບໍ່ຮັບກັອບປີ້ຜົນງານຈາກຮ້ານອື່ນທຸກກໍລະນີ</p>
-            <p>• ຫ້ามນຳຜົນງານຂອງຮ້ານໄປເປັນແບບໃຫ້ຮ້ານອື່ນເຮັດ</p>
+            <p>• ຫ້າມນຳຜົນງານຂອງຮ້ານໄປເປັນແບບໃຫ້ຮ້ານອື່ນເຮັດ</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 style="margin-bottom: 20px;">📂 ໝວດໝູ່ຜົນງານ (Drive)</h2>
+        
+        <a href="https://drive.google.com/drive/folders/1WjCwrkky7qDlvRbUPizUoaJ118I3OUAs" target="_blank" class="price-row">
+            <span>ແນວເກມກຶ່ງ Ads</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1WynLKq_16qWhh6Rz14G_ANUclLUyO1lB" target="_blank" class="price-row">
+            <span>ແນວລຽບໆ + ເກມ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1vhtzkVD4nyX70as81QNOtxgx0eid1oED" target="_blank" class="price-row">
+            <span>ແນວມືດ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/13SV21IB_4mmnjLwZ28ySzhraSOs6TOFQ" target="_blank" class="price-row">
+            <span>ແນວເຮດ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1iXWdlOwl15NhRBaQHCxdWvWYg_oH7t_N" target="_blank" class="price-row">
+            <span>ແນວໜ້າຮັກ + ທຳມະດາ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1LLL7vUBMtapUIxY_4NVEW_bM7_qQJPHq" target="_blank" class="price-row">
+            <span>ໂປຣໄຟລ໌ (Profile)</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1H7NV_ti-AusWZsEUT0nGu2wLhbvEP4sj" target="_blank" class="price-row">
+            <span>ຫົວປ້າຍ - ລາຍນ້ຳ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1lgXrKVEoEyFgByepZo3TNtaGm7GYd1zF" target="_blank" class="price-row">
+            <span>ຮ່ວມປ້າຍປ່ອຍ F</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+    </div>
+
+    <div class="section">
+        <h2 style="margin-bottom: 20px;">⏰ ລະຍະເວລາການເຮັດງານ</h2>
+        <div class="time-box">
+            <p style="margin-bottom: 8px;">🚀 <strong>5 ຊົ່ວໂມງ:</strong> (ໄວສຸດ)</p>
+            <p style="margin-bottom: 8px;">🕒 <strong>12 - 24 ຊົ່ວໂມງ:</strong> (ປົກກະຕິ)</p>
+            <p>🐢 <strong>4 - 7 ມື້:</strong> (ຊ້າສຸດ)</p>
         </div>
     </div>
 
@@ -201,21 +248,6 @@ border-radius:20px;
         <div class="step-item"><div class="step-num">2</div> ຊຳລະເງິນຕາມລາຄາທີ່ແຈ້ງ</div>
         <div class="step-item"><div class="step-num">3</div> ແຈ້ງຂໍ້ມູນລາຍລະອຽດໃນຟອມ</div>
         <div class="step-item"><div class="step-num">4</div> ລໍຖ້າກວດສອບ ແລະ ຮັບວຽກ</div>
-
-        <a href="#" class="btn-main" style="margin-top:20px; background: var(--main-purple); color:var(--dark-text); box-shadow: none;">⭐️ ເບິ່ງຕົວຢ່າງກາຕູນ ຄລິກ</a>
-    </div>
-
-    <div class="section">
-        <h2 style="margin-bottom: 20px;">📂 ໝວດໝູ່ຜົນງານ (Ads Style)</h2>
-        <div class="price-row">
-            <span>ແນວເກມ ແລະ Ads</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
-        </div>
-        <div class="price-row" style="background: var(--soft-yellow);">
-            <span style="font-weight: 500;">ແນວເກມກຶ່ງ Ads</span><span class="price-tag">ເບິ່ງວຽກ ✧</span>
-        </div>
-        <div class="price-row">
-            <span>ໂປຣໄຟລ໌ (Profile)</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
-        </div>
     </div>
 
     <div class="center">

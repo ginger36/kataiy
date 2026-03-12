@@ -9,20 +9,19 @@
 
 <style>
 :root{
-/* สัดส่วนสีตามสั่ง: ม่วง 70% | ชมพู 20% | ขาว-เหลือง 10% */
---bg-purple: #F3E5F5;    /* ม่วงพาสเทลหลัก */
---main-purple: #D1B3FA;  /* ม่วงเข้มขึ้นเล็กน้อย */
---soft-pink: #FCE4EC;    /* ชมพูอ่อน */
+--bg-purple: #F3E5F5;    /* ม่วง 70% */
+--main-purple: #D1B3FA;  /* ม่วงเข้ม */
+--soft-pink: #FCE4EC;    /* ชมพู 20% */
 --accent-pink: #F06292;  /* ชมพูเน้น */
---white: #FFFFFF;        /* ขาว */
---soft-yellow: #FFF9C4;  /* เหลืองอ่อน */
---dark-text: #4A148C;    /* ตัวอักษรม่วงเข้ม */
+--white: #FFFFFF;        /* ขาว 10% */
+--soft-yellow: #FFF9C4;  /* เหลือง 10% */
+--dark-text: #4A148C;    
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Mitr',sans-serif;}
 
 body{
-background: var(--bg-purple); /* ม่วง 70% */
+background: var(--bg-purple);
 display:flex;
 justify-content:center;
 background-image: radial-gradient(var(--main-purple) 0.5px, transparent 0.5px);
@@ -35,51 +34,50 @@ width:100%;
 padding:20px 15px 40px;
 }
 
-/* จัดกึ่งกลางสำหรับส่วน Header และปุ่มต่างๆ */
-.center {
+/* เน้นจัดเนื้อหาให้อยู่ตรงกลางหน้าจอ */
+.header-wrapper {
     text-align: center;
+    margin-bottom: 30px;
+}
+
+/* เอฟเฟกต์อักษรกึ่งกลาส (Glassmorphism) */
+.glass-title {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 10px 30px;
+    display: inline-block; /* ทำให้กรอบกว้างพอดีคำ */
+    color: #6A1B9A;
+    font-size: 2.2rem;
+    box-shadow: 0 8px 32px 0 rgba(106, 27, 154, 0.1);
+    margin: 15px 0;
 }
 
 .section{
-background: var(--white); /* ขาว 10% */
+background: var(--white);
 border-radius:30px; 
 padding:30px 25px;
 margin-bottom:25px;
 box-shadow: 0 10px 20px rgba(74, 20, 140, 0.05);
 border: 2px solid var(--soft-pink);
-position: relative;
 }
 
-/* Glassmorphism Effect - ปรับให้รองรับการจัดกลาง (Inline-block + Margin auto) */
-.glass-text {
-    background: rgba(255, 255, 255, 0.35);
-    border-radius: 20px;
-    padding: 12px 25px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    display: inline-block;
-    margin: 10px auto;
-    box-shadow: 0 4px 15px rgba(106, 27, 154, 0.1);
-}
-
-.glass-effect {
-    background: rgba(255, 255, 255, 0.5); /* สีขาวกึ่งกระจกตามภาพที่ 2 */
+/* กฎของร้าน - เปลี่ยนเป็นสีขาวตามสั่ง */
+.rule-box-white {
+    background: var(--white);
     border-radius: 25px;
     padding: 20px;
-    border: 2px dashed rgba(240, 98, 146, 0.4);
+    border: 2px dashed var(--accent-pink);
     color: var(--dark-text);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 }
-
-h1, h2 { color: var(--dark-text); font-weight: 500; }
 
 .logo{
 width:160px; height:160px;
 border-radius:50%;
 overflow:hidden;
-margin:0 auto 20px;
+margin:0 auto;
 border: 5px solid var(--white);
 box-shadow: 0 8px 25px rgba(209, 179, 250, 0.8);
 }
@@ -129,22 +127,10 @@ color: var(--accent-pink);
 border: 1px solid var(--accent-pink);
 }
 
-.step-card {
-    background: var(--soft-yellow); 
-    padding: 15px;
-    border-radius: 20px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #856404;
-}
-
-.time-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--soft-pink);
+/* สไตล์พิเศษสำหรับหมวดเกมกึ่ง Ads */
+.ads-special-row {
+    background: var(--soft-yellow) !important;
+    border: 1px solid #FFD54F;
 }
 </style>
 </head>
@@ -152,12 +138,12 @@ border: 1px solid var(--accent-pink);
 <body>
 <div class="container">
 
-    <div class="center" style="margin-bottom: 30px;">
+    <div class="header-wrapper">
         <div class="logo">
             <img src="242_20260207172619.jpeg" alt="Kataiy Logo">
         </div>
-        <h1 class="glass-text" style="color: #6A1B9A; font-size: 2.1rem;">Kataiy Store</h1>
-        <p style="color: var(--dark-text); margin: 8px 0 15px;">ສະບາຍດີ ຍິນດີຕ້ອນຮັບເຂົ້າສູ່ຮ້ານ Kataiy 🎀</p>
+        <h1 class="glass-title">Kataiy Store</h1>
+        <p style="color: var(--dark-text); margin-bottom: 15px;">ສະບາຍດີ ຍິນດີຕ້ອນຮັບເຂົ້າສູ່ຮ້ານ Kataiy 🎀</p>
         <div style="display:flex; justify-content:center; gap:10px;">
             <div class="badge">🎨 ຮັບອອກແບບປ້າຍ</div>
             <div class="badge">🎮 ຮັບເຕີມເກມ</div>
@@ -165,52 +151,33 @@ border: 1px solid var(--accent-pink);
     </div>
 
     <div class="section">
-        <div class="glass-effect">
+        <div class="rule-box-white">
             <h2 style="text-align: center; margin-bottom: 15px; font-size: 1.3rem;">📍 ກົດລະບຽບຂອງຮ້ານ 📍</h2>
             <p style="margin-bottom: 8px;">• ບໍ່ຮັບກັອບປີ້ຜົນງານຈາກຮ້ານອື່ນທຸກກໍລະນີ</p>
-            <p>• ຫ້ามນຳຜົນງານຂອງຮ້ານໄປເປັນແບບໃຫ້ຮ້ານອື່ນເຮັດ</p>
+            <p style="margin-bottom: 0;">• ຫ້າມນຳຜົນງານຂອງຮ້ານໄປເປັນແບບໃຫ້ຮ້ານອື່ນເຮັດ</p>
         </div>
     </div>
 
     <div class="section">
-        <h2 style="margin-bottom: 20px;">📝 ຂັ້ນຕອນການສັ່ງຊື้</h2>
-        <div class="step-card">
-            <strong>📋 ເງື່ອນໄຂ:</strong> ໂອນເງິນ = ຈອງຄິວ (ງານດ່ວນ + 10,000 ກີບ)
-        </div>
-        <div style="margin-left: 10px; text-align: left;">
-            <p style="margin-bottom:10px;">1. ເລືອກແບບ ຫຼື ບັອກທີ່ຕ້ອງການ</p>
-            <p style="margin-bottom:10px;">2. ຊຳລະເງິນຕາມລາຄາທີ່ແຈ້ງ</p>
-            <p style="margin-bottom:10px;">3. ແຈ້ງຂໍ້ມູນລາຍລະອຽดໃນຟອມ</p>
-            <p>4. ລໍຖ້າກວດສອບ ແລະ ຮັບງານ</p>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1v07-1ayQBM6YzG1lwGnRHSNcgFLBE9S1" class="btn-main" style="margin-top:20px; background: var(--main-purple); color:var(--dark-text);">⭐️ ເບິ່ງຕົວຢ່າງກาຕູນ ຄລິກ</a>
-    </div>
-
-    <div class="section">
-        <h2 style="margin-bottom: 20px;">📂 ໝວດໝູ່ຜົນງານ (Ads Style)</h2>
+        <h2 style="margin-bottom: 20px; color: var(--dark-text);">📂 ໝວດໝູ່ຜົນງານ</h2>
         
-        <div class="price-row" onclick="location.href='#'">
-            <span>ແນວເກມ ແລະ Ads</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+        <div class="price-row ads-special-row" onclick="location.href='#'">
+            <span style="font-weight: 500;">ແນວເກມກຶ່ງAds</span><span class="price-tag">ເບິ່ງງານ ✨</span>
         </div>
+        
         <div class="price-row" onclick="location.href='#'">
             <span>ແນວລຽບງ່າຍ + ເກມ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
         </div>
         <div class="price-row" onclick="location.href='#'">
-            <span>ແນວໂທນມືด (Dark)</span><span class="price-tag">ເບິ່ງງານ ✨</span>
-        </div>
-        <div class="price-row" style="background: var(--soft-yellow); border: 1px solid var(--accent-pink);" onclick="location.href='#'">
-            <span style="font-weight: 500;">ແນວເກມກຶ່ງAds</span><span class="price-tag">ເບິ່ງງານ ✧</span>
+            <span>ແນວໂທນມືด (Dark)</span><span class="price-tag">ເບิ่งງານ ✨</span>
         </div>
         <div class="price-row" onclick="location.href='#'">
-            <span>ແນວນ່າຮັກ + ລຽບງ່າຍ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
-        </div>
-        <div class="price-row" onclick="location.href='#'">
-            <span>ໂປຣໄຟລ໌ (Profile)</span><span class="price-tag">ເเบິ່ງງານ ✨</span>
+            <span>ໂປຣໄຟລ໌ (Profile)</span><span class="price-tag">ເບິ່ງງານ ✨</span>
         </div>
     </div>
 
-    <div class="center">
-        <a href="https://www.facebook.com/share/14WkotdfjdV/" class="btn-main">ติดต่อสอบถามผ่าน Facebook 🎀</a>
+    <div style="text-align: center;">
+        <a href="https://www.facebook.com/share/14WkotdfjdV/" class="btn-main">ຕິດຕໍ່ສອບຖາມຜ່ານ Facebook 🎀</a>
         <p style="font-size: 12px; color: var(--dark-text); margin-top: 20px; opacity: 0.6;">
             © 2026 Kataiy Store | Nammork Ssv
         </p>

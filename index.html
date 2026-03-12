@@ -9,7 +9,8 @@
 
 <style>
 :root{
---bg-purple: #F3E5F5;    
+/* ປັບສີຕາມຮູບພາບທີ່ 9 */
+--bg-purple: #E1D5F5;    /* ສີມ່ວງອ່ອນຫຼັກ */
 --main-purple: #D1B3FA;  
 --soft-pink: #FCE4EC;    
 --accent-pink: #F06292;  
@@ -24,6 +25,7 @@ body{
 background: var(--bg-purple); 
 display:flex;
 justify-content:center;
+/* ລາຍຈຸດພື້ນຫຼັງ */
 background-image: radial-gradient(var(--main-purple) 0.5px, transparent 0.5px);
 background-size: 20px 20px;
 }
@@ -36,8 +38,9 @@ padding:20px 15px 40px;
 
 .center { text-align: center; }
 
+/* ກ່ອງເນື້ອຫາຫຼັກແບບຈາງລົງຕາມຮູບ 9 */
 .section{
-background: var(--white); 
+background: rgba(255, 255, 255, 0.7); 
 border-radius:30px; 
 padding:30px 25px;
 margin-bottom:25px;
@@ -46,6 +49,7 @@ border: none;
 position: relative;
 }
 
+/* ກອບສີຂາວສຳລັບຊື່ຮ້ານ (ລົບເສັ້ນຂອບອອກຕາມຮູບ 7) */
 .white-box-title {
     background: var(--white);
     border-radius: 20px;
@@ -53,14 +57,16 @@ position: relative;
     display: inline-block;
     margin: 15px auto;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: none;
 }
 
-.rule-box-dashed {
-    background: var(--white);
+/* ກົດລະບຽບຮ້ານ: ແບບຈາງລົງ ແລະ ລົບເສັ້ນປະຂອບນອກອອກ */
+.rule-box-soft {
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 25px;
     padding: 20px;
-    border: 2px dashed var(--accent-pink);
     color: var(--dark-text);
+    border: none;
 }
 
 .logo{
@@ -73,23 +79,25 @@ box-shadow: 0 8px 25px rgba(209, 179, 250, 0.8);
 }
 .logo img{ width:100%; height:100%; object-fit:cover; }
 
+/* ປຸ່ມບໍລິການ */
 .badge{
 background: var(--main-purple);
-padding:8px 18px;
-border-radius:20px;
+padding: 10px 20px;
+border-radius:25px;
 font-size:14px;
 color: var(--dark-text);
 font-weight: 500;
 display: inline-block;
+border: none;
 }
 
-/* ປຸ່ມຮັບເຮັດປ້າຍສີຂາວຕາມສັ່ງ */
+/* ປຸ່ມຮັບເຮັດປ້າຍສີຂາວ (ຕາມຮູບ 9) */
 .badge-white {
     background: var(--white);
     border: 1px solid #eee;
 }
 
-/* Effect ໄຟສະຖານະກະພິບ */
+/* ໄຟສະຖານະກະພິບ */
 .dot-status {
     height: 10px;
     width: 10px;
@@ -125,24 +133,18 @@ display:flex;
 justify-content:space-between;
 align-items: center;
 margin-bottom:10px;
-background: var(--bg-purple);
+background: rgba(255, 255, 255, 0.4);
 padding:14px 20px;
 border-radius:20px;
-cursor: pointer;
 }
 
-.price-tag{
-background: var(--white);
-padding:5px 15px;
-border-radius:20px;
-font-size:13px;
-color: var(--accent-pink);
-border: 1px solid var(--accent-pink);
-}
-
-.ads-special {
-    background: var(--soft-yellow) !important;
-    border: 1px solid #FFD54F;
+.price-tag {
+    background: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--accent-pink);
+    border: 1px solid var(--accent-pink);
 }
 
 .step-item {
@@ -177,20 +179,21 @@ border: 1px solid var(--accent-pink);
             <h1 style="color: #4A148C; font-size: 2.1rem;">Kataiy Store</h1>
         </div>
         <p style="color: var(--dark-text); margin: 5px 0 15px;">ສະບາຍດີ ຍິນດີຕ້ອນຮັບເຂົ້າສູ່ຮ້ານ Kataiy 🎀</p>
+        
         <div style="display:flex; justify-content:center; gap:10px;">
             <div class="badge badge-white">🎨 ຮັບເຮັດປ້າຍ</div>
             <div class="badge">🎮 ຮັບເຕີມເກມ</div>
         </div>
         
-        <div style="margin-top: 20px; padding: 12px; border: 2px dashed var(--main-purple); border-radius: 50px; background: #fff; display: inline-block; width: 100%;">
+        <div style="margin-top: 20px; padding: 12px; border: 2px dashed rgba(209, 179, 250, 0.6); border-radius: 50px; background: rgba(255, 255, 255, 0.8); display: inline-block; width: 100%;">
             <span style="color: var(--dark-text); font-weight: 500;">
                 <span class="dot-status"></span> ພ້ອມຮັບອໍເດີ້ ທັກສອບຖາມໄດ້ເລີຍນ້າາ ✨
             </span>
         </div>
     </div>
 
-    <div class="section">
-        <div class="rule-box-dashed">
+    <div class="section" style="background: rgba(255, 255, 255, 0.6);">
+        <div class="rule-box-soft">
             <h2 class="center" style="margin-bottom: 15px; font-size: 1.3rem;">📍 ກົດລະບຽບຂອງຮ້ານ 📍</h2>
             <p style="margin-bottom: 8px;">• ບໍ່ຮັບກັອບປີ້ຜົນງານຈາກຮ້ານອື່ນທຸກກໍລະນີ</p>
             <p>• ຫ້າມນຳຜົນງານຂອງຮ້ານໄປເປັນແບບໃຫ້ຮ້ານອື່ນເຮັດ</p>
@@ -205,7 +208,7 @@ border: 1px solid var(--accent-pink);
         
         <div class="step-item"><div class="step-num">1</div> ເລືອກແບບ ຫຼື ບັອກທີ່ຕ້ອງການ</div>
         <div class="step-item"><div class="step-num">2</div> ຊຳລະເງິນຕາມລາຄາທີ່ແຈ້ງ</div>
-        <div class="step-item"><div class="step-num">3</div> ແຈ້ງຂໍ້ມູນລາຍລະອຽດໃນຟອມ</div>
+        <div class="step-item"><div class="step-num">3</div> ແຈ້ງຂໍ້ມູນລายລະອຽດໃນຟອມ</div>
         <div class="step-item"><div class="step-num">4</div> ລໍຖ້າກວດສອບ ແລະ ຮັບວຽກ</div>
 
         <a href="#" class="btn-main" style="margin-top:20px; background: var(--main-purple); color:var(--dark-text); box-shadow: none;">⭐️ ເບິ່ງຕົວຢ່າງກາຕູນ ຄລິກ</a>
@@ -213,31 +216,14 @@ border: 1px solid var(--accent-pink);
 
     <div class="section">
         <h2 style="margin-bottom: 20px;">📂 ໝວດໝູ່ຜົນງານ (Ads Style)</h2>
-        
         <div class="price-row">
             <span>ແນວເກມ ແລະ Ads</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
         </div>
-        <div class="price-row ads-special">
+        <div class="price-row" style="background: var(--soft-yellow);">
             <span style="font-weight: 500;">ແນວເກມກຶ່ງAds</span><span class="price-tag">ເບິ່ງວຽກ ✧</span>
         </div>
         <div class="price-row">
-            <span>ແນວລຽບງ່າຍ + ເກມ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
-        </div>
-        <div class="price-row">
-            <span>ໂປຣໄຟລ໌ (Profile)</span><span class="price-tag">ເບິ່ງວຽก ✨</span>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2 style="margin-bottom: 15px;">⏳ ໄລຍະເວລາການເຮັດວຽກ</h2>
-        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
-            <span>⚡ ໄວສຸດ:</span><b>5 ຊົ່ວໂມງ</b>
-        </div>
-        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
-            <span>✅ ປົກກະຕິ:</span><b>12 - 24 ຊົ່ວໂມງ</b>
-        </div>
-        <div style="display: flex; justify-content: space-between; padding: 10px 0;">
-            <span>💤 ຊ້າສຸດ:</span><b>4 - 7 ມື້</b>
+            <span>ໂປຣໄຟລ໌ (Profile)</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
         </div>
     </div>
 

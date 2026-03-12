@@ -45,13 +45,27 @@ border: 2px solid var(--soft-pink);
 position: relative;
 }
 
-/* ส่วนกฎของร้าน - ชมพู 20% */
-.rule-box {
-    background: var(--soft-pink);
+/* Glassmorphism Effect for text */
+.glass-text {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 10px 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: inline-block;
+}
+
+/* Glassmorphism Effect for rule-box - ภาพที่ 2 และ 1 */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.45); /* White 10% */
     border-radius: 25px;
     padding: 20px;
-    border: 2px dashed var(--accent-pink);
+    border: 2px dashed rgba(240, 98, 146, 0.4);
     color: var(--dark-text);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(106, 27, 154, 0.15);
 }
 
 h1, h2 { color: var(--dark-text); font-weight: 500; }
@@ -98,8 +112,16 @@ padding:14px 20px;
 border-radius:20px;
 cursor: pointer;
 transition: 0.2s;
+/* ปรับขอบของ Portfolio ให้สดใสขึ้น */
+border: 1px solid transparent;
+box-shadow: 0 3px 6px rgba(106, 27, 154, 0.05);
 }
-.price-row:hover { background: var(--soft-pink); transform: scale(1.02); }
+.price-row:hover {
+    background: var(--soft-pink);
+    border-color: rgba(240, 98, 146, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(106, 27, 154, 0.1);
+}
 
 .price-tag{
 background: var(--white);
@@ -137,7 +159,7 @@ border: 1px solid var(--accent-pink);
         <div class="logo">
             <img src="242_20260207172619.jpeg" alt="Kataiy Logo">
         </div>
-        <h1>Kataiy Store</h1>
+        <h1 class="glass-text" style="color: #6A1B9A; font-size: 2.1rem;">Kataiy Store</h1>
         <p style="color: var(--dark-text); margin: 8px 0 15px;">ສະບາຍດີ ຍິນດີຕ້ອນຮັບເຂົ້າສູ່ຮ້ານ Kataiy 🎀</p>
         <div style="display:flex; justify-content:center; gap:10px;">
             <div class="badge">🎨 ຮັບອອກແບບປ້າຍ</div>
@@ -146,10 +168,10 @@ border: 1px solid var(--accent-pink);
     </div>
 
     <div class="section">
-        <div class="rule-box">
-            <h2 style="text-align: center; margin-bottom: 15px; font-size: 1.3rem;">📍 ກົດລະບຽບຂອງຮ້ານ 📍</h2>
-            <p style="margin-bottom: 8px;">• ບໍ່ຮັບກັອບປີ້ຜົນງານຈາກຮ້านອື່ນທຸກກໍລະນີ</p>
-            <p>• ຫ້າມນຳຜົນງານຂອງຮ້ານໄປເປັນແບບໃຫ້ຮ້ານອື່ນເຮັດ</p>
+        <div class="glass-effect">
+            <h2 style="text-align: center; margin-bottom: 15px; font-size: 1.3rem; color: #6A1B9A;">📍 ກົດລະບຽບຂອງຮ້ານ 📍</h2>
+            <p style="margin-bottom: 8px; color: #424242;">• ບໍ່ຮັບກັອບປີ້ຜົນງານຈາກຮ້ານອື່ນທຸກກໍລະນີ</p>
+            <p style="color: #424242;">• ຫ້າມນຳຜົນງານຂອງຮ້ານໄປເປັນແບບໃຫ້ຮ້ານອື່นເຮັດ</p>
         </div>
     </div>
 
@@ -160,7 +182,7 @@ border: 1px solid var(--accent-pink);
         </div>
         <div style="margin-left: 10px;">
             <p style="margin-bottom:10px;">1. ເລືອກແບບ ຫຼື ບັອກທີ່ຕ້ອງການ</p>
-            <p style="margin-bottom:10px;">2. ຊຳລະເງິນຕາມລາຄາທີ່ແຈ້ງ</p>
+            <p style="margin-bottom:10px;">2. ຊຳລະເงື່ອນຕາມລາຄາທີ່ແຈ້ງ</p>
             <p style="margin-bottom:10px;">3. ແຈ້ງຂໍ້ມູນລາຍລະອຽດໃນຟອມ</p>
             <p>4. ລໍຖ້າກວດສອບ ແລະ ຮັບງານ</p>
         </div>
@@ -168,19 +190,19 @@ border: 1px solid var(--accent-pink);
     </div>
 
     <div class="section">
-        <h2 style="margin-bottom: 20px;">📂 ໝວດໝູ່ຜົນງານ</h2>
+        <h2 style="margin-bottom: 20px; color: #6A1B9A;">📂 ໝວດໝູ່ຜົນງານ (Ads Style)</h2>
         
         <div class="price-row" onclick="location.href='https://drive.google.com/drive/folders/1WjCwrkky7qDlvRbUPizUoaJ118I3OUAs'">
-            <span>ແນວເກມ ແລະ Ads</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+            <span>ແນวເກມ ແລະ Ads</span><span class="price-tag">ເບິ່ງງານ ✨</span>
         </div>
         <div class="price-row" onclick="location.href='https://drive.google.com/drive/folders/1WynLKq_16qWhh6Rz14G_ANUclLUyO1lB'">
             <span>ແນວລຽບງ່າຍ + ເກມ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
         </div>
         <div class="price-row" onclick="location.href='https://drive.google.com/drive/folders/1vhtzkVD4nyX70as81QNOtxgx0eid1oED'">
-            <span>ແນວໂທນມືດ (Dark)</span><span class="price-tag">ເเบິ່ງງານ ✨</span>
+            <span>ແນວໂທນມືດ (Dark)</span><span class="price-tag">ເບິ່ງງານ ✨</span>
         </div>
-        <div class="price-row" onclick="location.href='https://drive.google.com/drive/folders/13SV21IB_4mmnjLwZ28ySzhraSOs6TOFQ'">
-            <span>ແนວເຮດດີສ (Header)</span><span class="price-tag">ເບິ່ງງານ ✨</span>
+        <div class="price-row" style="background: var(--soft-yellow); border-color: rgba(240, 98, 146, 0.3);" onclick="location.href='https://drive.google.com/drive/folders/13SV21IB_4mmnjLwZ28ySzhraSOs6TOFQ'">
+            <span style="font-weight: 500;">ແນວເກມກຶ່ງAds</span><span class="price-tag" style="background:var(--white);">ເບິ່ງງານ ✧</span>
         </div>
         <div class="price-row" onclick="location.href='https://drive.google.com/drive/folders/1iXWdlOwl15NhRBaQHCxdWvWYg_oH7t_N'">
             <span>ແນວນ່າຮັກ + ລຽບງ່າຍ</span><span class="price-tag">ເບິ່ງງານ ✨</span>
@@ -199,7 +221,7 @@ border: 1px solid var(--accent-pink);
     <div class="section">
         <h2 style="margin-bottom: 15px;">⏳ ໄລຍະເວລາລໍຖ້າງານ</h2>
         <div class="time-item"><span>⚡️ ໄວສຸດ:</span> <strong>5 ຊົ່ວໂມງ</strong></div>
-        <div class="time-item"><span>✅ ປົກກະຕິ:</span> <strong>12 - 24 ຊົ່ວໂມງ</strong></div>
+        <div class="time-item"><span>✅ ປົກກະຕິ:</span> <strong>12 - 24 ຊົ່ວໂมງ</strong></div>
         <div class="time-item" style="border:none;"><span>💤 ຊ້າສຸດ:</span> <strong>4 - 7 ມື້</strong></div>
     </div>
 

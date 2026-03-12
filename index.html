@@ -9,14 +9,13 @@
 
 <style>
 :root{
-/* สัดส่วนสีตามสั่ง: ม่วง 70% | ชมพู 20% | ขาว-เหลือง 10% */
---bg-purple: #F3E5F5;    /* ม่วงพาสเทลหลัก */
---main-purple: #D1B3FA;  /* ม่วงเข้มขึ้นเล็กน้อย */
---soft-pink: #FCE4EC;    /* ชมพูอ่อน */
---accent-pink: #F06292;  /* ชมพูเน้น */
---white: #FFFFFF;        /* ขาว */
---soft-yellow: #FFF9C4;  /* เหลืองอ่อน */
---dark-text: #4A148C;    /* ตัวอักษรม่วงเข้ม */
+--bg-purple: #E1D5F5;    
+--main-purple: #D1B3FA;  
+--soft-pink: #FCE4EC;    
+--accent-pink: #F06292;  
+--white: #FFFFFF;        
+--soft-yellow: #FFF9C4;  
+--dark-text: #4A148C;    
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Mitr',sans-serif;}
@@ -25,49 +24,20 @@ body{
 background: var(--bg-purple); 
 display:flex;
 justify-content:center;
-position: relative; /* สำหรับ Background Emojis */
-overflow-x: hidden; /* กันอิโมจิเกินขอบ */
 background-image: radial-gradient(var(--main-purple) 0.5px, transparent 0.5px);
 background-size: 20px 20px;
-}
-
-/* ☔️ 1. Background Emojis Animation (อิโมจิพื้นหลังเคลื่อนไหว) */
-body::before {
-    content: '💕';
-    position: fixed;
-    top: -50px; left: 10%;
-    font-size: 20px;
-    animation: rainEmoji 10s linear infinite;
-    opacity: 0.2;
-    z-index: 1;
-}
-body::after {
-    content: '🌟';
-    position: fixed;
-    top: -50px; left: 80%;
-    font-size: 18px;
-    animation: rainEmoji 12s linear infinite 5s;
-    opacity: 0.15;
-    z-index: 1;
-}
-
-@keyframes rainEmoji {
-    0% { top: -50px; transform: scale(1) rotate(0deg); }
-    100% { top: 110vh; transform: scale(1.1) rotate(360deg); }
 }
 
 .container{
 max-width:500px;
 width:100%;
 padding:20px 15px 40px;
-z-index: 2; /* อยู่หน้า Background Emojis */
 }
 
 .center { text-align: center; }
 
-/* กล่องเนื้อหาหลัก */
 .section{
-background: rgba(255, 255, 255, 0.7); /* White 10% โปร่งแสง */
+background: rgba(255, 255, 255, 0.7); 
 border-radius:30px; 
 padding:30px 25px;
 margin-bottom:25px;
@@ -76,83 +46,62 @@ border: none;
 position: relative;
 }
 
-/* หัวข้อร้านในกล่องสีขาว (ไม่เอากรอบเส้น) */
 .white-box-title {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.5); 
     border-radius: 20px;
     padding: 12px 35px;
     display: inline-block;
     margin: 15px auto;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    border: none;
 }
 
-/* กฎของร้าน: มีเส้นประสีชมพู */
-.rule-box-dashed {
-    background: var(--white);
+.rule-box-soft {
+    background: rgba(255, 255, 255, 0.4);
     border-radius: 25px;
     padding: 20px;
-    border: 2px dashed var(--accent-pink);
     color: var(--dark-text);
-}
-
-.logo-wrapper {
-    position: relative;
-    width: 200px; /* Wrapper สำหรับจัดตำแหน่งอิโมจิลอย */
-    height: 200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border: none;
 }
 
 .logo{
 width:160px; height:160px;
 border-radius:50%;
 overflow:hidden;
+margin:0 auto;
 border: 5px solid var(--white);
 box-shadow: 0 8px 25px rgba(209, 179, 250, 0.8);
-z-index: 2; /* ทำให้โลโก้อยู่หน้า Element ตกแต่ง */
 }
 .logo img{ width:100%; height:100%; object-fit:cover; }
 
-/* 💖🍬🎀🌟🪻 2. Floating Emojis Around Logo (อิโมจิลอยรอบโลโก้) */
-.floating-emoji {
-    position: absolute;
-    animation: blinkDot 3s infinite ease-in-out;
-    opacity: 0.8;
-}
-
-.emoji1 { top: 10%; left: 30%; font-size: 20px; content: '💖'; animation-delay: 0s; }
-.emoji2 { top: 50%; left: 10%; font-size: 18px; content: '🍬'; animation-delay: 0.5s; }
-.emoji3 { top: 80%; left: 40%; font-size: 22px; content: '🎀'; animation-delay: 1s; }
-.emoji4 { top: 30%; left: 70%; font-size: 18px; content: '🌟'; animation-delay: 1.5s; }
-.emoji5 { top: 70%; left: 80%; font-size: 20px; content: '🪻'; animation-delay: 2s; }
-
-/* การขยับลอยละล่อง */
-@keyframes blinkDot {
-    0% { transform: scale(1) translateY(0); }
-    50% { transform: scale(1.1) translateY(-10px); }
-    100% { transform: scale(1) translateY(0); }
-}
-
-/* Badge ทั่วไป (สีม่วง) */
 .badge{
-background: var(--main-purple);
-padding:8px 18px;
-border-radius:20px;
+background: var(--main-purple); 
+padding: 10px 20px;
+border-radius:25px;
 font-size:14px;
 color: var(--dark-text);
 font-weight: 500;
 display: inline-block;
+border: none;
 }
 
-/* Badge สีขาวตามสั่ง */
-.badge-white {
-    background: var(--white);
-    border: 1px solid #eee;
+.dot-status {
+    height: 10px;
+    width: 10px;
+    background-color: var(--accent-pink);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    box-shadow: 0 0 8px var(--accent-pink);
+    animation: blink 1.2s infinite;
 }
 
-/* ปุ่มหลักด้านล่าง */
+@keyframes blink {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
 .btn-main{
 background: linear-gradient(135deg, var(--main-purple), var(--accent-pink));
 color: var(--white);
@@ -166,34 +115,29 @@ box-shadow: 0 5px 15px rgba(240, 98, 146, 0.3);
 transition: 0.3s;
 }
 
-/* แถวรายการผลงาน */
 .price-row{
 display:flex;
 justify-content:space-between;
 align-items: center;
 margin-bottom:10px;
-background: var(--bg-purple);
+background: rgba(255, 255, 255, 0.4);
 padding:14px 20px;
 border-radius:20px;
-cursor: pointer;
+text-decoration: none;
+color: var(--dark-text);
+transition: 0.2s;
+}
+.price-row:hover { background: rgba(255, 255, 255, 0.8); }
+
+.price-tag {
+    background: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--accent-pink);
+    border: 1px solid var(--accent-pink);
 }
 
-.price-tag{
-background: var(--white);
-padding:5px 15px;
-border-radius:20px;
-font-size:13px;
-color: var(--accent-pink);
-border: 1px solid var(--accent-pink);
-}
-
-/* สไตล์พิเศษสำหรับหมวด แນວเกมกึ่งAds */
-.ads-special {
-    background: var(--soft-yellow) !important;
-    border: 1px solid #FFD54F;
-}
-
-/* ขั้นตอนการสั่งแบบวงกลมม่วง */
 .step-item {
     display: flex;
     align-items: center;
@@ -212,6 +156,13 @@ border: 1px solid var(--accent-pink);
     font-weight: 600;
     font-size: 14px;
 }
+
+.time-box {
+    background: var(--white);
+    padding: 15px;
+    border-radius: 20px;
+    border: 2px dashed var(--main-purple);
+}
 </style>
 </head>
 
@@ -219,69 +170,86 @@ border: 1px solid var(--accent-pink);
 <div class="container">
 
     <div class="center" style="margin-bottom: 30px;">
-        <div class="logo-wrapper">
-            <div class="logo">
-                <img src="242_20260207172619.jpeg" alt="Kataiy Logo">
-            </div>
-            <div class="floating-emoji emoji1">💖</div>
-            <div class="floating-emoji emoji2">🍬</div>
-            <div class="floating-emoji emoji3">🎀</div>
-            <div class="floating-emoji emoji4">🌟</div>
-            <div class="floating-emoji emoji5">🪻</div>
+        <div class="logo">
+            <img src="242_20260207172619.jpeg" alt="Kataiy Logo">
         </div>
         
         <div class="white-box-title">
             <h1 style="color: #4A148C; font-size: 2.1rem;">Kataiy Store</h1>
         </div>
+        
         <p style="color: var(--dark-text); margin: 5px 0 15px;">ສະບາຍດີ ຍິນດີຕ້ອນຮັບເຂົ້າສູ່ຮ້ານ Kataiy 🎀</p>
+        
         <div style="display:flex; justify-content:center; gap:10px;">
-            <div class="badge">🎨 ຮັບອອກແບບປ້າຍ</div>
-            <div class="badge badge-white">🎮 รับเติมเกม</div>
+            <div class="badge">🎨 ຮັບເຮັດປ້າຍ</div>
+            <div class="badge">🎮 ຮັບເຕີມເກມ</div>
         </div>
-        <div style="margin-top: 20px; padding: 12px; border: 2px dashed var(--main-purple); border-radius: 50px; background: #fff; display: inline-block; width: 100%;">
+        
+        <div style="margin-top: 20px; padding: 12px; border: 2px dashed rgba(209, 179, 250, 0.6); border-radius: 50px; background: rgba(255, 255, 255, 0.8); display: inline-block; width: 100%;">
             <span style="color: var(--dark-text); font-weight: 500;">
-                <span class="dot-status"></span> ພ້ອມຮັບອໍເດີ້ ທັກສອບຖາມໄດ້ເລີยน้า ✨
+                <span class="dot-status"></span> ພ້ອມຮັບອໍເດີ້ ທັກສອບຖາມໄດ້ເລີຍນ້າາ ✨
             </span>
         </div>
     </div>
 
-    <div class="section">
-        <div class="rule-box-dashed">
+    <div class="section" style="background: rgba(255, 255, 255, 0.6);">
+        <div class="rule-box-soft">
             <h2 class="center" style="margin-bottom: 15px; font-size: 1.3rem;">📍 ກົດລະບຽບຂອງຮ້ານ 📍</h2>
-            <p style="margin-bottom: 8px;">• ບໍ່ຮັບກັອບປີ້ຜົນงานจากຮ້ານอື່ນທຸກກໍລະນີ</p>
+            <p style="margin-bottom: 8px;">• ບໍ່ຮັບກັອບປີ້ຜົນງານຈາກຮ້ານອື່ນທຸກກໍລະນີ</p>
             <p>• ຫ້າມນຳຜົນງານຂອງຮ້ານໄປເປັນແບບໃຫ້ຮ້ານອື່ນເຮັດ</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 style="margin-bottom: 20px;">📂 ໝວດໝູ່ຜົນງານ (Drive)</h2>
+        
+        <a href="https://drive.google.com/drive/folders/1WjCwrkky7qDlvRbUPizUoaJ118I3OUAs" target="_blank" class="price-row">
+            <span>ແນວເກມກຶ່ງ Ads</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1WynLKq_16qWhh6Rz14G_ANUclLUyO1lB" target="_blank" class="price-row">
+            <span>ແນວລຽບໆ + ເກມ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1vhtzkVD4nyX70as81QNOtxgx0eid1oED" target="_blank" class="price-row">
+            <span>ແນວມືດ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/13SV21IB_4mmnjLwZ28ySzhraSOs6TOFQ" target="_blank" class="price-row">
+            <span>ແນວເຮດ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1iXWdlOwl15NhRBaQHCxdWvWYg_oH7t_N" target="_blank" class="price-row">
+            <span>ແນວໜ້າຮັກ + ທຳມະດາ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1LLL7vUBMtapUIxY_4NVEW_bM7_qQJPHq" target="_blank" class="price-row">
+            <span>ໂປຣໄຟລ໌ (Profile)</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1H7NV_ti-AusWZsEUT0nGu2wLhbvEP4sj" target="_blank" class="price-row">
+            <span>ຫົວປ້າຍ - ລາຍນ້ຳ</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1lgXrKVEoEyFgByepZo3TNtaGm7GYd1zF" target="_blank" class="price-row">
+            <span>ຮ່ວມປ້າຍປ່ອຍ F</span><span class="price-tag">ເບິ່ງວຽກ ✨</span>
+        </a>
+    </div>
+
+    <div class="section">
+        <h2 style="margin-bottom: 20px;">⏰ ລະຍະເວລາການເຮັດງານ</h2>
+        <div class="time-box">
+            <p style="margin-bottom: 8px;">🚀 <strong>5 ຊົ່ວໂມງ:</strong> (ໄວສຸດ)</p>
+            <p style="margin-bottom: 8px;">🕒 <strong>12 - 24 ຊົ່ວໂມງ:</strong> (ປົກກະຕິ)</p>
+            <p>🐢 <strong>4 - 7 ມື້:</strong> (ຊ້າສຸດ)</p>
         </div>
     </div>
 
     <div class="section">
         <h2 style="margin-bottom: 20px;">📝 ຂັ້ນຕອນການສັ່ງຊື້</h2>
         <div style="background: var(--soft-yellow); padding: 15px; border-radius: 20px; margin-bottom: 20px; color: #856404;">
-            <strong>📋 ເງື່ອນໄຂ:</strong> ໂອນເງິນ = ຈອງຄິວ (ງານດ່ວນ + 10,000 ກີບ)
+            <strong>📋 ເງື່ອນໄຂ:</strong> ໂອນເງິນ = ຈອງຄິວ (ວຽກດ່ວນ + 10,000 ກີບ)
         </div>
         
-        <div class="step-item"><div class="step-num">1</div> ເລືອກແບບ ຫຼື ບັອກที่ต้องการ</div>
-        <div class="step-item"><div class="step-num">2</div> ชำระเงินตามราคาที่แจ้ง</div>
-        <div class="step-item"><div class="step-num">3</div> แจ้งข้อมูลรายละเอียดในฟอร์ม</div>
-        <div class="step-item"><div class="step-num">4</div> รอตรวจสอบ และ รับงาน</div>
+        <div class="step-item"><div class="step-num">1</div> ເລືອກແບບ ຫຼື ບັອກທີ່ຕ້ອງການ</div>
+        <div class="step-item"><div class="step-num">2</div> ຊຳລະເງິນຕາມລາຄາທີ່ແຈ້ງ</div>
+        <div class="step-item"><div class="step-num">3</div> ແຈ້ງຂໍ້ມູນລາຍລະອຽດໃນຟອມ</div>
+        <div class="step-item"><div class="step-num">4</div> ລໍຖ້າກວດສອບ ແລະ ຮັບວຽກ</div>
 
-        <a href="https://drive.google.com/drive/folders/1v07-1ayQBM6YzG1lwGnRHSNcgFLBE9S1" target="_blank" class="btn-main" style="margin-top:20px; background: var(--soft-pink); color:var(--dark-text); box-shadow: none;">⭐️ ตัวอย่างตูน + ของตต คลิ๊ก</a>
-    </div>
-
-    <div class="section">
-        <h2 style="margin-bottom: 20px;">📂 ໝວດໝູ່ຜົນງານ (Ads Style)</h2>
-        
-        <div class="price-row">
-            <span>ແນວເກມ ແລະ Ads</span><span class="price-tag">ເບິ່ງງານ ✨</span>
-        </div>
-        <div class="price-row ads-special">
-            <span style="font-weight: 500;">แນวเกมกึ่งAds</span><span class="price-tag">เบิ่งงาน ✧</span>
-        </div>
-        <div class="price-row">
-            <span>แນวเรียบๆ + เกม</span><span class="price-tag">เบิ่งงาน ✨</span>
-        </div>
-        <div class="price-row">
-            <span>โปรไฟล์ (Profile)</span><span class="price-tag">เบิ่งงาน ✨</span>
-        </div>
+        <a href="https://drive.google.com/drive/folders/1v07-1ayQBM6YzG1lwGnRHSNcgFLBE9S1" target="_blank" class="btn-main" style="margin-top:20px; background: var(--main-purple); color:var(--dark-text); box-shadow: none;">⭐️ ຕົວຢ່າງກາຕູນ + ຂອງຕົກແຕ່ງ ຄລິກ</a>
     </div>
 
     <div class="center">
